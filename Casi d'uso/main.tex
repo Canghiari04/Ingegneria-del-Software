@@ -20,17 +20,41 @@
 
 \section*{Use case}
 \large
-
-I diagrammi dei \textbf{casi d'uso} sono \textbf{diagrammi comportamentali} utilizzati per descrivere un insieme di azioni (\textit{casi d'uso}) che un sistema (\textit{soggetto}) dovrebbe o deve svolgere insieme ad uno o più utenti esterni del sistema (\textit{attori}). Ogni caso d'uso deve \textbf{fornire un risultato utile e di valore} per gli attori o per gli stakeholders del sistema. \\
-Tuttavia, un caso d'uso \textbf{non è un elemento del diagramma}, ma un \textbf{insieme di azioni o eventi} che definiscono delle \textbf{interazioni} tra diversi ruoli (o \textbf{attori}) e il \textbf{sistema} per raggiungere un \textbf{obiettivo}. \\ \\
-I diagrammi dei casi d'uso vengono utilizzati per specificare:
+\subsection*{Introduzione}
+Obiettivi:
 \begin{enumerate}
     \renewcommand{\labelenumi}{-}
-    \item (\textit{esterni}) requisiti sul soggetto, utilizzi richiesti dal sistema, per capire cosa un sistema in fase di sviluppo deve essere in grado di fare 
-    \item le funzionalità offerte da un soggetto, ovvero cosa può fare il sistema
-    \item requisiti posti dal soggetto per l'ambiente, definendo come l'ambiente dovrebbe interagire con il soggetto in modo da ottenere l'esecuzione del servizio
+    \itemsep0em
+    \item Identificare i \textit{casi d'uso}
+    \item Connettere i casi d'uso rispetto agli obiettivi dell'\textit{attore principale}
+    \item Mantenere uno stile \textit{essenziale}, non troppo informativo, poichè potrebbe rendere maggiormente difficile l'individuazione del \textit{goal}
+    \item Adottare uno \textit{sviluppo iterativo} 
 \end{enumerate}
-Alcuni elementi grafici che compongono i casi d'uso sono:
+\textbf{Use case} spesso è indicato come il meccanismo per scoprire e registrare i requisiti, di carattere \textit{funzionale}. La scrittura dei \textit{casi d'uso} è un eccellente tecnica per capire e descrivere ciò che il \textit{sistema} debba implementare, rispetto ad una totalità di influenze esterne che creino la situazione ideale per poter proseguire con il compimento dell'obiettivo principale da parte del \textit{soggetto}.
+\textbf{UP}, ossia \textit{Unified Process}, indica un certo modello dei casi d'uso, definito come \textbf{modello comportamentale}, per cui fortemente connesso rispetto ai \textit{comportamenti} degli elementi trattati.\vspace*{14pt}\\
+I \textit{diagrammi} dei \textit{casi d'uso} sono \textbf{diagrammi comportamentali} utilizzati per descrivere un insieme di azioni, o meglio \textit{behavior}, che un sistema deve svolgere insieme ad uno o più utenti esterni al sistema. Inoltre, carattere imprescindibile di tale modellazione, prevede che ogni \textit{use case} fornisca un \textbf{risultato di valore}, per gli utenti con cui interagiscono oppure per gli \textit{stakeholders}. \textit{Customers} e \textit{final users} pongono certi obiettivi, detti \textit{needs}, i quali richiedono che \textit{sistemi} siano in grado di rendere chiaro il loro \textbf{connubio}.\vspace*{14pt}\\
+Differenti sono gli approcci dettati, tuttavia le strategie migliori riguardano un uso semplice e famigliare degli strumenti messi a disposizione, poichè rendono più semplice la lettura del modello, contribuiscono alla ricerca dei requisiti necessari e abbassa il rischio di perdere l'obiettivo su cui fonda l'intera architettura, definito anche \textit{missing the mark}.\\
+Infatti il primo step ricade nella comprensione del problema assieme all'individuazione dei requisiti funzionali che comporranno i casi d'uso, affinchè siano comprensibili da parte dei portatori di interesse. Tuttavia, quest'ultimo passaggio rappresenta la maggiore difficoltà di questo modello, ossia la decisione e scoperta di cosa sia potenzialmente necessario; durante una prima fase di analisi potrebbero essere inseriti dei \textit{layer sofistaticati-aggiuntivi}, i quali solitamente oscurano il reale proseguimento del \textit{mark}.\vspace*{14pt}\\
+Per cui, ricapitolando, il diagramma dei casi d'uso è utilizzato per specificare:
+\begin{enumerate}
+    \renewcommand{\labelenumi}{-}
+    \itemsep0em
+    \item I requisiti esterni degli stakeholders, funzionali rispetto a quanto il sistema debba implementare
+    \item Le funzionalità offerte dal sistema per tutti i final user esterni
+    \item Rispettare i limiti secondo cui il sistema debba sottostare, defininendo come tale ambiente debba interagire con il soggetto pur di proseguire verso il \textit{path} voluto
+\end{enumerate}
+
+\subsection*{Elementi del diagramma}
+In questa sezione si analizzano gli elementi comuni ad un qualsiasi diagramma dei casi d'uso, descrivendo successivamente caratteristiche uniche rispetto alle strategie elencate.\vspace*{14pt}\\
+\textit{Definizione informale}\\
+Un \textbf{attore} è qualcosa caratterizzato da un comportamento, come una persona, un computer system oppure un'organizzazione.\vspace*{14pt}\\
+Per cui, descrivendone maggiormente il ruolo svolto, un \textbf{attore} è un \textbf{classificatore comportamentale}, ossia un'entità che interagisce con il sistema implementato o ideato mediante \textbf{interazioni}, quali, semplicemente, l'invio di segnali o di dati.\vspace*{14pt}\\
+\textit{Definzione informale}\\
+Uno \textbf{scenario}, definita anche \textit{istanza} del caso d'uso, indica un preciso percorso attraversando certi e specifici \textit{use case}.\vspace*{14pt}\\
+Quindi il modello comportamentale trattato è definito mediante un insieme di scenari fallimentari o di successo, in relazione al conseguimento dell'obiettivo dell'attore principale, adeguandosi ai comportamenti illustrati all'interno dei singoli casi d'uso. E' bene sottolineare come ogni caso d'uso rappresenti uno specifico requisito funzionale, posto al di fuori del diagramma, dove solamente mediante interazioni è possibile stabilire un path per cui il sistema sia in grado di raggiungere l'obiettivo.\\
+UP definisce differenti formati e tipi di use case...
+
+\pagebreak
 \begin{center}
     \includegraphics[width=0.7\textwidth]{foto 1.png}
 \end{center}
