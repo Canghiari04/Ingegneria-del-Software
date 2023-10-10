@@ -51,7 +51,7 @@ In questa sezione si analizzano gli elementi comuni ad un qualsiasi diagramma de
 Un \textbf{attore} è qualcosa caratterizzato da un comportamento, come una persona, un computer system oppure un'organizzazione.\vspace*{14pt}\\
 Per cui, descrivendone maggiormente il ruolo svolto, un \textbf{attore} è un \textbf{classificatore comportamentale}, ossia un'entità che interagisce con il sistema implementato o ideato mediante \textbf{interazioni}, quali, semplicemente, l'invio di segnali o di dati.\vspace*{14pt}\\
 \textit{Definzione informale}\\
-Uno \textbf{scenario}, definita anche \textit{istanza} del caso d'uso, indica un preciso percorso attraversando certi e specifici \textit{use case}.\vspace*{14pt}\\
+Uno \textbf{scenario}, definito anche \textit{istanza} del caso d'uso, indica un preciso percorso attraversando certi e specifici \textit{use case}.\vspace*{14pt}\\
 Quindi il modello comportamentale trattato è definito mediante un insieme di scenari fallimentari o di successo, in relazione al conseguimento dell'obiettivo dell'attore principale, adeguandosi ai comportamenti illustrati all'interno dei singoli casi d'uso. E' bene sottolineare come ogni caso d'uso rappresenti uno specifico requisito funzionale, posto al di fuori del diagramma, dove solamente mediante interazioni è possibile stabilire un path per cui il sistema sia in grado di raggiungere l'obiettivo.\\
 Sono definiti differenti formati del diagramma dei casi d'uso, legati ad una descrizione maggiormente esaustiva oppure funzionale; si ribadisce quale sia comunque il caposaldo su cui regge tale modello comportamentale, mantenere il \textit{focus} sull'obiettivo principale, evitando di offuscare la mente tramite la lettura di aspetti non del tutto incidenti e pertinenti per la reale comprensione e analisi del diagramma.\vspace*{14pt}\\
 \textit{Esempio}\vspace*{2pt}\\
@@ -70,8 +70,8 @@ Un diagramma UML per un caso d'uso \textbf{NON} è un modello di caso d'uso! Il 
 \subsection*{Diagramma dei casi d'uso}
 \large
 UML mette a disposizione il \textit{diagramma dei casi d'uso}, illustrando i differenti \textit{attori}, \textit{use case} e \textit{relazioni} che intercorrono. Le entità principali possono essere riportate come segue.\vspace*{14pt}\\
-\textit{Attore}\\Il quale ricalca la stessa descrizione informale data precedentemente, ossia rappresenta un certo \textbf{classficatore comportamentale}.\vspace*{14pt}\\
-\textit{Soggetto}\\Il \textbf{soggetto} è il sistema sotto analisi, al quale vengono applicati i diversi casi d'uso. Il soggetto può essere una qualsiasi entità, ossia un sistema software, sistema fisico oppure un sottosistema del soggetto. Il soggetto è un \textbf{classificatore di casi d'uso} che il ruolo di \textit{soggetto}.\vspace*{14pt}\\
+\textit{Attore}\\Il quale ricalca la stessa descrizione informale data precedentemente, ossia rappresenta un certo \textbf{classificatore comportamentale}.\vspace*{14pt}\\
+\textit{Soggetto}\\Il \textbf{soggetto} è il sistema sotto analisi, al quale vengono applicati i diversi casi d'uso. Il soggetto può essere una qualsiasi entità, ossia un sistema software, sistema fisico oppure un sottosistema del soggetto. Il soggetto è un \textbf{classificatore di casi d'uso} che ha il ruolo di \textit{soggetto}.\vspace*{14pt}\\
 \textit{Casi d'uso}\\Un \textbf{caso d'uso} è anch'esso un \textit{classificatore comportamentale} che indica quali comportamenti possano essere descritti conseguendo in una \textbf{sequenza di azioni}, pur sempre eseguite dal sistema per ottenere un  risultato \textbf{osservabile}, sperando che appartenga alla zona di interesse degli stakeholder.\vspace*{14pt}\\
 \begin{center}
     \includegraphics[width=0.6\textwidth]{foto 2.png}
@@ -80,15 +80,15 @@ UML mette a disposizione il \textit{diagramma dei casi d'uso}, illustrando i dif
 \subsection*{Relazioni}
 \large
 In un diagramma simile le interazioni sono espresse mediante relazioni, le quali sono di vario genere, implementate a seconda del contesto.\vspace*{14pt}\\
-\textbf{Relazioni attori}\\
-\textit{Generalizzazione}\\La \textbf{generalizzazione} tra attori è rappresentata graficamente come una linea direzionata. Adottata per esprimere l'ereditarietà, per cui da un certo attore padre posso rescindere un infinito numero di attori discendenti\vspace*{14pt}\\
+\textbf{Relazioni attori}\vspace*{14pt}\\
+\textit{Generalizzazione}\\La \textbf{generalizzazione} tra attori è rappresentata graficamente come una linea direzionata. Adottata per esprimere l'ereditarietà, per cui da un certo attore padre posso rescindere un infinito numero di attori discendenti.\vspace*{14pt}\\
 \textit{Associazione tra attori e casi d'uso}\\Ogni caso d'uso specifica delle funzionalità utili che il soggetto fornisce agli attori. Queste funzionalità devono essere inizializzate da un attore. L'associazione posta tra un attore e un caso d'uso può essere solo \textbf{binaria}.\vspace*{14pt}\\
-\textbf{Relazioni casi d'uso}\\
+\textbf{Relazioni casi d'uso}\vspace*{14pt}\\
 \textit{Generalizzazione}\\Come avviene per gli attori la \textbf{generalizzazione} tra casi d'uso avviene tramite un freccia direzionata, dove la stessa freccia è posta dal caso \textit{specifico} a quello \textit{generico}.
 \begin{center}
     \includegraphics[width=0.4\textwidth]{foto 3.png}
 \end{center}
-\textit{Extend}\\L'\textbf{extend} è una relazione che indica come e quando il comportamento definito in maniera \textit{opzionale}, il quale estende il caso d'uso in questione, possa devenire parte del comportamento attivo. Le relazioni di questo genere vengono rappresentate graficamente come una freccia tratteggiata avente una punta aperta, in questo caso posta dal caso esteso verso il caso base; al di sopra è posta la denominazione \textbf{<<extend>>}.
+\textit{Extend}\\L'\textbf{extend} è una relazione che indica come e quando il comportamento definito in maniera \textit{opzionale}, il quale estende il caso d'uso in questione, possa devenire parte del comportamento attivo. Le relazioni di questo genere vengono rappresentate graficamente come una freccia tratteggiata avente una punta aperta, posta dal caso esteso verso il caso base; al di sopra è posta la denominazione \textbf{<<extend>>}.
 \begin{center}
     \includegraphics[width=0.4\textwidth]{foto 4.png}
 \end{center}
