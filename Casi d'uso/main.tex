@@ -139,49 +139,4 @@ I casi d'uso sono definiti per soddisfare gli obiettivi degli utenti, che intera
     \item Per ogni attore identificare i loro obiettivi
     \item Definire i casi d'uso che consentono di soddisfare i differenti requisiti funzionali
 \end{enumerate}
-
-\subsection*{HomeWork}
-\large
-Un \textit{blog} è una \textit{web application} che contiene una serie di messaggi (\textit{post}) datati su diversi argomenti. I messaggi vengono postati dal creatore del blog che li mette online. L'autore può associare ad ogni messaggio una o più categorie (tramite delle parole chiave). \\
-I visitatori del blog possono commentare i messaggi; i commenti, se approvati dal moderatore (di solito è il creatore del blog), appaiono in una sezione specifica sotto il messaggio originale. \\ \\
-Partiamo capendo quale sia il soggetto, ovvero la nostra \textit{web application}. Procediamo poi trovando gli attori:
-\begin{enumerate}
-    \renewcommand{\labelenumi}{-}
-    \itemsep0em
-    \item Creatore del blog
-    \item Visitatore
-    \item Moderatore
-\end{enumerate}
-L'obiettivo del creatore del blog è quello di \textbf{pubblicare i messaggi}.\\
-Vediamo ora un modello di casi d'uso d'esempio per questo caso:
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 6.png}
-\end{center}
-Come possiamo osservare, abbiamo i nostri tre attori (creatore del blog, visitatore e moderatore) ed i loro obiettivi.
-Un'altra possibile soluzione poteva essere la seguente:
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 7.png}
-\end{center}
-In questo caso dovremmo specificare in qualche modo che non possono essere eseguite entrambe le operazioni (approve e reject), ma soltanto una per commento (magari tramite l'utilizzo di XOR). Tra i due approcci è preferibile il primo, non dovendo specificare l'esclusività e per un approccio meno confusionario rispetto al secondo.
-Se volessimo mantenere un modello funzionale più semplice:
-\begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 8.png}
-\end{center}
-Questa soluzione è buona, anche se meno dettagliata. In questo caso però il più completo è migliore, perchè non risulta essere troppo confusionario. Ripensando al ciclo di vita di un modello di casi d'uso, questa potrebbe essere la fase iniziale della modellazione.\\ \\
-Se avessimo voluto usare un template di caso d'uso semplice, avremmo ottenuto (stiamo considerando l'obiettivo \textit{write comment}):
-\begin{enumerate}
-    \renewcommand{\labelenumi}{-}
-    \item \textbf{UC1}: write comment
-    \item \textbf{Actors}: visitor 
-    \item \textbf{Pre-condition}: utente visualizza il messaggio
-    \item \textbf{Main Sequence}:  
-    \begin{enumerate}
-        \item utente scrive il commento
-        \item utente invia il commento
-        \item sistema conferma la ricezione del commento
-    \end{enumerate}
-    \item \textbf{Alternative Sequence}: il messaggio contiene linguaggio non appropriato\\
-    (c1) Il sistema cancella il commento
-    \item \textbf{Post-condition}: il messaggio viene aggiunto alla lista dei messaggi da moderare
-\end{enumerate}
 \end{document}
