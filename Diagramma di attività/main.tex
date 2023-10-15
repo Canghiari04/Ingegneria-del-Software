@@ -28,7 +28,8 @@ Obiettivi:
     \item Riconoscere e acquisire le nozioni per valutare e analizzare diagrammi di attività
 \end{enumerate}
 Un \textbf{diagramma di attività} è un \textit{diagramma comportamentale} che mostra l'evoluzione di un \textit{flusso di attività}, ognuna delle quali è definita come un'esecuzione non atomica, quindi che può essere interrotta, all'interno di uno \textit{stato}. L'esecuzione di un attività è decomposta in \textit{azioni atomiche}, le quali sono coordinate mediante la ricezione di segnali o di certe informazioni affinchè possano essere avviate. Questa tipologia di modellazione è adoperata per rappresentare il \textit{comportamento} di elementi, quali classi, use case, interfacce, componenti oppure operazioni inerenti a classi.\vspace*{14pt}\\
-Si tratta di una variante dei \textit{diagrammi di stato}, in cui ogni \textit{stato} rappresenta l'esecuzione di un'opportuna attività e la transizione da uno stato a quello successivo è generata dal completamento dell'attività stessa. In UML i diagrammi di attività si basano sulla semantica delle \textit{reti di Petri}, le quali utilizzano termini legati a \textit{transizioni} e a \textit{marcatori di avanzamento}, meglio definiti \textit{token}.\vspace*{14pt}\\
+Si tratta di una variante dei \textit{diagrammi di stato}, in cui ogni \textit{stato} rappresenta l'esecuzione di un'opportuna attività e la transizione da uno stato a quello successivo è generata dal completamento dell'attività stessa. Inoltre, una differenza semantica dei diagrammi di stato è la denominazione posta all'interno dei differenti eventi; infatti si ricorda che in diagrammi di stato i rettangoli figurativi contengono participi, quindi entità che subiscono l'azione o il comportamento, mentre nelle raffigurazioni dei diagrammi di attività è posta la denominazione (\textit{verbo + complemento oggetto}).\vspace{14pt}\\
+In UML i diagrammi di attività si basano sulla semantica delle \textit{reti di Petri}, le quali utilizzano termini legati a \textit{transizioni} e a \textit{marcatori di avanzamento}, meglio definiti \textit{token}.\vspace*{14pt}\\
 Come avviene per un qualsiasi diagramma, occorre definire quali siano gli strumenti necessari per tale tipologia di modellazione, i quali si differenziano in:
 \begin{enumerate}
     \renewcommand{\labelenumi}{-}
@@ -49,7 +50,7 @@ Graficamente un'attività è rappresentata mediante un rettangolo con i vertici 
 \subsection*{Azione}
 \large
 \textit{Definizione informale}\\Un'\textbf{azione} è un elemento che indica un singolo passaggio \textit{atomico}, quindi a differenza di una attività non potrà essere interrotto.\vspace*{14pt}\\
-Sono rappresentate graficamente mediante rettangoli con i vertici smussati, dove al suo interno è posto il nome dell'azione.\\
+Sono rappresentate graficamente mediante rettangoli con i vertici smussati, dove al loro interno sono posto i nomi dell'azioni.\\
 \begin{center}
     \includegraphics*[width=0.3\textwidth]{foto 2.png}
 \end{center}
