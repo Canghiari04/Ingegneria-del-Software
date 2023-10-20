@@ -38,7 +38,6 @@ Un primo approccio a questa nuova tipologia di chart è dedicata mediante una se
 \large
 Solitamente un \textit{state machine diagram} ritrae tutte le entità che compongono la sintassi del diagramma, illustrando eventi e stati di interesse di un oggetto, narrandone il comportamento dello stesso qualora soggetto a stimoli esterni.\vspace*{14pt}\\
 \textit{Definizione informale}\\Un \textbf{evento} è una occorrenza significativa, similmente, anche se ritrae un esempio scontato e banale, può essere (\textit{Alzare la cornetta del telefono}).\vspace*{14pt}\\
-\textbf{Trovare qualche nozione al riguardo...}\vspace*{14pt}\\
 \textit{Definizione informale}\\Uno \textbf{stato} è la condizione di un oggetto in un dato momento; riprendendo quanto detto prima potrebbe essere indicato uno stato come segue (\textit{Il telefono non termina di squillare fino a quando il ricevitore non alza la cornetta}).\vspace*{14pt}\\
 Il concetto su cui si fonda uno \textit{stato} permette di valorizzare il \textit{lifecycle} di un'istanza, come l'esecuzione di un'attività oppure l'attesa posta per la ricezione di un evento specifico.\\
 L'uso degli \textit{stati} avviene per differenziare oggetti tra di loro, dove ognuno dei quali assumerà una condizione differente rispetto a stessi dati immessi.\ Quest'ultimo passaggio consente di diversificare due tipologie di stato, quali:
@@ -77,21 +76,38 @@ Si propone una lettura del diagramma in passaggi consecutivi, che possa anche ap
 Un'ultima considerazione aggiuntiva al diagramma prevede che nessuno stato di per sé abbia comportamenti.\ Uno stato si differenzia da altri corrispettivi poichè prendendo in considerazione \textit{input} differenti corrispondono \textit{output} differenti.
 \subsection*{Pseudostati}
 \large
-\textit{Definizione informale}\\I \textbf{pseudostati} sono elementi sintattici adoperati per arricchire la semantica di un \textit{state machine diagram}.\vspace*{14pt}\\
+\textit{Definizione informale}\\Gli \textbf{pseudostati} sono elementi sintattici adoperati per arricchire la semantica di un \textit{state machine diagram}.\vspace*{14pt}\\
 Ciò che differenzia uno \textit{stato} da un \textit{pseudostato} consiste nel fatto che un \textit{token} di qualsiasi provenienza, non abbia la possibilità di stagnare permanentemente al suo interno.\ Un elemento di questo insieme è \textbf{initial node}, il nodo da cui iniziano a defluire tutti i \textit{marcatori} all'interno della rete.\ Infatti, come da esempio precedente, la \textit{transizione} che collega il \textit{nodo iniziale} allo \textit{stato} successivo non possiede una \textit{guardia}; ciò è regolamentato per ogni \textit{diagram} di tale classe, ovviando ad ogni possibile congettura.\vspace*{14pt}\\
 \textit{Initial node} non identifica l'unico pseudostato, ulteriori sono \textbf{join}, \textbf{fork} oppure \textbf{terminate}; quest'ultimo non deve essere confuso con il \textbf{final node}, il proprio obiettivo è totalmente opposto rispetto al secondo citato.\ Spesso il \textit{terminate} è implementato qualora si voglia improntare un particolare \textit{workflow} alla conclusione, senza che risulti essere vincolante per ogni altro token.\vspace*{14pt}\\
+
+\pagebreak
 Si elencano usi e rappresentazioni grafiche dei pseudostati:
 \begin{itemize}[label={-}]
     \itemsep0em
     \item Initial, rappresenta il punto di partenza di una \textit{regione}
+    \begin{center}
+        \includegraphics[width=0.035\textwidth]{foto 3.png}
+    \end{center}
     \item Join, simile ad una \textit{swimline} finale, la quale raggruppa differenti transizioni incombi in un'unico edge di uscita.\ Prima di poter uscire al di fuori della \textit{regione}, ogni funzione deve completare le proprie attività
-    \item Fork, suddivide una transizione in arrivo in differenti \textit{workflow}.1\ Attività contraria rispetto allo \textit{pseudostato join}
+    \begin{center}
+        \includegraphics[width=0.12\textwidth]{foto 4.png}
+    \end{center}
+    \item Fork, suddivide una transizione in arrivo in differenti \textit{workflow}.\ Attività contraria rispetto allo \textit{pseudostato join}
+    \begin{center}
+        \includegraphics[width=0.2\textwidth]{foto 5.png}
+    \end{center}
     \item ExitPoint, raccordo di conclusione di una \textit{sottomacchina}
+    \begin{center}
+        \includegraphics[width=0.05\textwidth]{foto 6.png}
+    \end{center}
     \item Terminate, giunto allo pseudostato l'esecuzione della macchina è conclusa immediatamente
+    \begin{center}
+        \includegraphics[width=0.05\textwidth]{foto 7.png}
+    \end{center}
 \end{itemize}
 \textit{Esempio}\vspace*{7pt}
 \begin{center}
-    \includegraphics*[width=0.6\textwidth]{foto 3.png}
+    \includegraphics*[width=0.7\textwidth]{foto 8.png}
 \end{center}
 Un \textit{diagramma di macchina a stati} è adoperato non solo per esprimere nella maniera più dettagliata possibile \textit{eventi} e \textit{transizioni}, ma si presta ottimamente come \textit{design model} per la descrizione di comportamenti per una successiva implementazione.\vspace*{14pt}\\
 Per un agevole comprensione è proposto un ulteriore esempio, che raffigura quanto detto prima.\ Posto il \textit{initial node} la fase successiva, la quale comprende una certa \textit{transizione}, è caratterizzata dalla presenza di un'\textit{azione}, in quanto impone il set dei minuti e ore dell'orologio a zero.\vspace*{14pt}\\
@@ -105,7 +121,7 @@ Concludendo, l'assenza del \textit{final node} non è un errore, poichè in ques
 \textit{Defizione informale}\\Una \textbf{regione} è un insieme di \textit{stati} e \textit{transizioni}, adoperati per rendere maggiormente comprensivo un \textit{diagramma di macchina a stati}.
 Spesso la sintassi di una \textit{regione} è utilizzata per manipolare contesti che richiedano un quantitativo di elementi piuttosto articolato e complesso, dove una sua assenza renderebbe di difficile analisi il \textit{diagram} ottenuto.\vspace*{7pt}
 \begin{center}
-    \includegraphics*[width=0.35\textwidth]{foto 4.png}
+    \includegraphics*[width=0.35\textwidth]{foto 9.png}
 \end{center}
 Una regione simile, pone una certa effettività.\ Un qualsiasi token che si ritrovi all'interno di uno stato simile provvederà ad affluire nelle due \textbf{submachine} differenti.\ Semplicemente, in questa casistica, le \textit{submachine} definiscono comportamenti interni, destinati a terminare, senza influire su \textit{workflow} esterni.
 
@@ -114,14 +130,14 @@ Una regione simile, pone una certa effettività.\ Un qualsiasi token che si ritr
 \textit{Definizione informale}\\Una \textbf{compound transitions} rappresenta un insieme di \textit{transizioni} attraversate dal \textit{flow} di \textit{marcatori} generati dal nodo iniziale, le quali non sono vincolate da alcuna \textit{guardia}.\vspace*{14pt}\\
 \textit{Esempio}\vspace*{7pt}
 \begin{center}
-    \includegraphics*[width=0.7\textwidth]{foto 5.png}
+    \includegraphics*[width=0.8\textwidth]{foto 10.png}
 \end{center}
 Tale \textit{state machine diagram} raffigura una realtà molto particolare, articolata nell'utilizzo di elementi sintattici piuttosto singolari.\vspace*{14pt}\\
 E' rappresentato un unico stato, \textit{active}, da cui si diversificano tre \textit{initial dott} differenti.\ Solo una \textit{submachine} è caratterizzata da un \textit{flow} destinato a terminare, ossia la sezione comprendente il concreto lavaggio delle stoviglie.\ La volontà di questa scelta modellativa è dovuta alla continua possibilità, durante l'attivazione della lavastoviglie, di poter modificarne i \textit{pattern} legati alla procedura di lavaggio, come \textit{quick} oppure \textit{normal}.\vspace*{14pt}\\
 Si analizza il primo \textit{initial node}.\ Inizializzato il \textit{token}, il primo step consiste nell'acquisizione dello stato \textit{off}, da cui consegue un azione di \textit{setup}, ossia di preparazione al lavaggio.\ Descritto ciò, terminata la fase di preparazione, sono elencati tre \textit{stati successivi}, quali \textit{washing}, \textit{rising} e \textit{drying}.\ La particolarità del \textit{substate} è dovuta all'azione \textit{timeout}; essa, qualora invocata, non provoca una formattazione del processo, ma rimane consistente rispetto all'ultimo stato descrittivo che abbia subito l'azione.\ Quest'ultimo passo è rispecchiato dal termine sintattico \textbf{state history}; mediante tale strumento è possibile tenere traccia dell'attimo in cui si sia verificata un'\textit{interruzione}, garantendo la continuità del \textit{workflow}.\ Contrariamente, pur sempre in relazione ad un \textit{sottostato}, è possibile resettarne il procedimento.\vspace*{14pt}\\
 \textit{Esempio}\vspace*{7pt}
 \begin{center}
-    \includegraphics*[width=0.6\textwidth]{foto 6.png}
+    \includegraphics*[width=0.6\textwidth]{foto 11.png}
 \end{center}
 \textit{Bank ATM} rappresenta un unica \textit{regione ortogonale}, caratterizzata da un numero piuttosto elevato di \textit{transizioni} tra \textit{stati}.\ Si osserva la presenza di una singola \textit{submachine}, posta all'interno della condizione \textit{Serving Customer}.\vspace*{14pt}\\
 Come avviene per il \textit{state diagram Dishwasher}, i \textit{token} inizializzati defluiscono verso lo stato \textit{Off}, per poi convergere verso \textit{Self Test} eseguendo un'azione istantanea di preparazione, denominata \textit{turn on}. Successivamente, attraversando \textit{Idle} e dopo aver inserito la carta di credito, i \textit{marcatori} sono immessi all'interno della sottomacchina. Lo stato in questione permette di prelevare la somma desiderata; certi participi, come \textit{Customer Authentication} e  \textit{Transaction}, possiedono un livello informativo molto più dettagliato, grazie alla presenza di ulteriori \textit{state machine} descrittive, indicate dal simbolo sottostante.\vspace*{14pt}\\
