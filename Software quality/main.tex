@@ -1,0 +1,114 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\titleformat{\section}
+{\LARGE\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\Large\bfseries}{\thesection}{1em}{}
+
+\begin{document}
+\pagestyle{empty}
+\section*{Software quality}
+\large
+
+\subsection*{Introduzione}
+\large
+Obiettivi:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \itemsep0em
+    \item Comprendere quando uno sviluppo software sia di elevata qualità
+    \item Produrre software di elevata qualità in accordo con lo scopo della progettazione 
+\end{itemize}
+In capitoli precedenti sono stati illustrati differenti processi di modellazione, che hanno come intento principale quello di fornire un'elevata metrica qualitativa, in grado di indirizzare il prossimo sviluppo nella strada meno tortuosa e articolata possibile, sperando di proseguire per la realizzazione dei requisiti funzionali.\vspace*{14pt}\\
+Tuttavia spesso il punto su cui ci si focalizza, riguarda quali siano i principi fondamentali affinchè si possa ritenere che costrutti illustrati sino a ora siano sufficienti. Ad un primo impatto, potrebbero essere formulate della caratteristiche ritenute comuni per una qualsiasi implementazione, come la \textit{leggibilità del codice}, non percepita dall'utente finale, comportamento adattivo del sistema di modellarsi dinanzi a problematiche, meglio definito come \textit{meccanismo di risilienza}, oppure che abbia un atteggiamento \textit{deterministico}, il processo escutivo espresso dovrà corrispondere al processo atteso dal risultato finale.\vspace*{14pt}\\
+Le particolarità descritte rappresentano solamente l'apice su cui fonda un \textit{design goal}, per cui, innanzitutto, è bene soffermarsi sulla diversificazione delle \textit{qualità}.\vspace*{14pt}\\
+Semplicemente, si distinguono in \textit{qualità esterne}, ossia tematiche che l'utente è in grado di percepire, sia che ritraggano vincoli funzionali o meno, e \textit{qualità interne}, le quali promuovono l'organizzazione dello sviluppo software, informazioni che sono di passaggio tra sviluppatori e programmatori, per cui occorre che siano rispettate determinate regole pur di procedere verso il compimento dell'obiettivo posto.\vspace*{14pt}\\
+Di seguito, sono riportate un elenco di qualità che possono caratterizzare un progetto software, di entrambe le categorie, di cui saranno descritti i concetti principali su cui si formulano.\vspace*{14pt}\\
+\textit{Qualità esterne}\\
+\textit{Definizione Correctness}\\
+Per \textbf{correctness} si intende il grado in cui un sistema è esente da errori nelle sue specifiche, progettazioni e implementazioni.\vspace*{14pt}\\
+\textit{Definizione Usability}\\
+Per \textbf{usability} si intende l'approccio in cui un utente possa comprendere ed imparare ad utilizzare e valorizzare un sistema.\vspace*{14pt}\\
+\textit{Definizione Efficiency}\\
+Per \textbf{efficiency} si intende l'uso minimale delle risorse messe a dispozione del sistema, le quali spesso includono la complessità temporale, lo spreco di memoria oppure il tempo di esecuzione.\vspace*{14pt}\\
+\textit{Definizione Reliability}\\
+Per \textbf{reliability} si intende l'abilità di un sistema di conseguire e compiere i requisiti funzionali posti inizialmente, caratterizzato da una minima probabilità di fallimento.\vspace*{14pt}\\
+\textit{Definizione Integrity}\\
+Per \textbf{integrity} si intende il grado in cui un sistema è capace di prevenire accessi non autorizzati o dannosi, ai propri programmi e dati collezionati. L'idea ipone l'inclusione di respingere accessi non autorizzati da molteplici utenti e di garantire che i dati possano essere estratti in maniera congrua e in linea con le direttive poste.\vspace*{14pt}\\
+\textit{Definizione Adaptability}\\
+Per \textbf{adaptability} si intende la possibilità che un sistema possa essere riadattato, senza apportare modifiche, in applicazioni oppure ambienti che non siano specifici rispetto al fine per cui si era progettato e, successivamente, implementato il singolare processo esecutivo.\vspace*{14pt}\\
+\textit{Definizione Accuracy}\\
+Per \textbf{accuracy} si intende il grado in cui un sistema è esente da errori, specialmente in relazione al rispetto dei risultati attesi. \textit{Accuracy} si distingue da \textit{correctness}, poichè dispone quanto un sistema conduca adeguatamente il proprio obiettivo, rispetto a come sia correttamente progettato e costruito.\vspace*{14pt}\\
+\textit{Definizione Robustness}\\
+Per \textbf{robustness} si intende il grado in cui un sistema reagisca rispetto a input invalidi oppure in relazione a condizioni ambientali stressanti, illustrando la propria capacità nel produrre il risultato sperato.\vspace*{14pt}\\
+Le \textit{qualità esterne} sono le uniche caratteristiche che interessano ad utenti finali. Generalmente sono interessati alla semplicità d'uso del software, e non in relazione all'immediatezza di modifiche apportate da parte di sviluppatori; principalmente preoccupati nella correttezza del prodotto, e non sulla leggibilità del codice oppure in una buona stesura strutturale.\vspace*{14pt}\\
+Tuttavia, il piccolo trafiletto posto indica qualità strettamente necessarie per tutti coloro che compiono una mansione simile.\vspace*{14pt}\\
+\textit{Qualità interne}\\
+\textit{Definizione Maintainability}\\
+Per \textbf{maintainability} si intende la facilità con cui sia possibile modificare un sistema software per cambiamenti o aggiunta di capacità interne, migliorare le prestazioni oppure correggere difetti.\vspace*{14pt}\\
+\textit{Definizione Flexibility}\\
+Per \textbf{flexibility} si intende l'intento in cui sia possibile modificare il sistema software per variazioni poste al di fuori dei veri requisiti funzionali stilati ad una prima analisi.\vspace*{14pt}\\
+\textit{Definizione Portability}\\
+Per \textbf{portability} si intende la semplicità con cui sia possibile modificare il sistema per operare all'interno di un ambiente differente rispetto a quello specificato.\vspace*{14pt}\\
+\textit{Definizione Reusability}\\
+Per \textbf{reusability} si intende l'intento e la facilità con cui sia possibile adoperare parti di certe soluzioni software in altri sistemi.\vspace*{14pt}\\
+\textit{Definizione Readability}\\
+Per \textbf{readability} si intende la facilità con cui sia possibile leggere e comprendere il codice sorgente, soprattutto a livello di dettagli articolati.\vspace*{14pt}\\
+\textit{Definizione Testability}\\
+Per \textbf{testability} si intende il grado in cui si possa testare l'efficacia del sistema software, ossia se sia possibile verificare se rispecchia i requisiti funzionali.\vspace*{14pt}\\
+\textit{Definizione Understandability}\\
+Per \textbf{understandability} si intende la semplicità con cui si possa comprendere il sistema sia a livello organizzativo che a livello strutturale.\vspace*{14pt}\\
+Concludendo, la massimizzazione di certe caratteristiche inevitabilmente confligge con altre azioni di ottimizzazione delle qualità proposte. Individuare una soluzione migliore da un insieme di tematiche simili, rende molto difficile lo sviluppo software per un qualsiasi progetto.  
+
+\subsection*{Modelli qualitativi}
+\large
+Sino a ora, sono state illustrate ed elencate un insieme di qualità che possano contraddistinguere un sistema software. Tuttavia, una descrizione del genere potrebbe essere poco incisiva, del tutto fuorviante, alludendo alla possibilità di poter imputare quali sviluppi abbiano rilevanza o meno. Solitamente, si tende a scartare l'ipotesi di assegnazione di un punteggio, poichè potrebbe essere poco adattiva rispetto al contesto narrato, per cui si adottano \textit{layer qualitativi} in grado di stabilire prodotti software di valore.\vspace*{14pt}\\
+I \textbf{modelli qualitativi} sono strettamente connessi allo schema SquaRE, evoluzione dello standard \textit{ISO 9126}, il quale provvede a determinare tre \textit{quality models}: \textbf{Trovare definizioni sui modelli ...}
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item \textit{Software product quality}, 
+    \item \textit{Data quality},
+    \item \textit{Quality in use},
+\end{itemize} 
+Oltre ai \textit{modelli qualitativi} spesso si attuano framework affinchè si riesca nell'intento di attribuire criterio valorizzativo ad un sistema software. A titolo semplificativo, il committente dei requisiti funzionali potrebbe essere interessato ad uno sviluppo coeso che possa contraddistinguere passi di \textit{manuntenzione}; tale effettività potrebbe essere utile per gli stessi sviluppatori riprendendo codice sorgente leggibile e duttile. Per cui, in conclusione, tutto ciò che si desidera consiste che il software prodotto sia \textit{riutilizzabile} e \textit{progettato per il cambiamento}.\vspace*{14pt}\\
+Come già descritto, la volontà primaria prevede la \textit{modifiability} del codice sorgente progettato e implementato dagli sviluppatori. Nonostante, una richiesta simile pone le proprie fondamenta su principi, concetti e ideologie articolati e di difficile comprensione. Per cui, di seguito, sono presentate le tematiche fondamentali che modellano la logica legata alla \textit{software quality}.
+
+\subsection*{Object-Oriented Principles}
+\large
+L'obiettivo impone la progettazione di sistemi software duttili al cambiamento, sia a livello di contesto che di requisiti funzionali posti. Per semplicità il discorso verte completamente su progetti legati al paradigma orientato agli oggetti, per cui occorre trovare il giusto compresso tra \textit{incapsulazione}, \textit{ereditarietà} e \textit{poliformismo}, i quali se combinati possono garantire la massimizzazione della qualità del software.\vspace*{14pt}\\
+Sono proposte brevi definizioni per completezza informativa delle caratteristiche illustrate poco fa:\vspace*{14pt}\\
+\textit{Definizione informale}\\
+L'\textit{incapsulamento} è la proprietà per cui un oggetto contiene al suo interno gli attributi e i metodi che accedono ai dati stessi.\vspace*{14pt}\\
+\textit{Definizione informale}\\
+L'\textit{ereditarietà} è la proprietà che consente di definire delle classi figlie che ereditano dalle classi padre attributi e metodi.\vspace*{14pt}\\
+\textit{Definizione informale}\\
+Il \textit{poliformismo} è la proprietà che permette al programma di fare uso di oggetti che espongono una stessa interfaccia, ma implementazioni diverse.\vspace*{14pt}\\
+Terminando, oltre ai tre principi su cui si stabilizzano OOP, occorre soffermarsi anche sul \textit{concetto astratto} che deve essere mantenuto, non tanto a livello alto per cui ovviando a caratteristiche superflue oppure ovvie, ma adoperando un'analisi in grado di rescindere su cosa possa essere ritenuto essenziale ai fini della qualità cardine, denominata \textit{modifiability}.
+
+\subsection*{Design smells}
+\large
+Improntare un progetto verso una visione chiara e lineare di ciò che il sistema dovrebbe fare rappresenta una prima fase di una qualsiasi implementazione. Infatti, proseguendo con l'aggiunta e la modifica di ulteriori elementi, esso potrebbe essere viziato da comportamenti negativi, la cui manuntenzione diviene sempre più difficile, raggiungendo apici che possano richiedere una nuova progettazione dell'intero contesto. Per questa ragione sono introdotti i \textbf{design smells}, ossia la qualità momentanea non è all'altezza delle aspettative.\vspace*{14pt}\\
+Anche in questo contesto si evidenziano caratteristiche negative comuni, le quali possono essere riassunte come segue:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item \textit{Rigidity}, è la tendenza che rende complicata la \textit{modifiability} del software. Una progettazione è rigida qualora un'unica modifica causi una serie di sotto-variazioni in moduli dipendenti.
+    \item \textit{Fragility}, è la tendenza di un programma che smette di operare per piccole variazioni fatte. Spesso, nuove problematiche sono poste all'interno di sezioni che non hanno collegamenti diretti con aree che abbiano subuto modifiche. Tuttavia, la possibilità di risolvere problemi simili potrebbe rappresentare un'arma a doppio taglio, poichè man mano che si tenti nella risoluzione di pari passo aumenta la fragilità del sistema software.
+    \item \textit{Immobility}, una progettazione è immobile quando essa contiene in un unico fulcro un insieme di \textit{dipendenze} utilizzate dalla maggioranza delle componenti del sistema. Tuttavia, l'intento di suddividere le \textit{dipendenze} in sezioni differenti potrebbe essere molto pericoloso ai fini della progettazione effettuata fino ad ora.
+    \item \textit{Viscosity}, a sua volta la viscosità si suddivide in due forme. La \textit{viscosità del software} rappresenta un valore attribuile a differenti effettività, le quali sono accomunate da due vie implementative; la viscosità è minima qualora modifiche apportate preservano la progettazione, mentre la viscosità è elevata qualora variazioni comportano a cambiamenti totali delle linee guida prefissate. Infine, la corrispettiva è definita \textit{viscosità dell'ambiente}, la quale avviene qualora lo sviluppo dell'intero contesto è lento ed inefficiente. Una semplificazione è data dalla fase di testing del codice sorgente, in cui se pochi file appartenenti all'insieme richiedano ora di analisi e di controllo, gli stessi sviluppatori saranno tentati nell'apportare modifiche che richiedano il minor tempo possibile, ma questo non garantisce correttezza dell'implementazione, con un'elevata probabilità che manifesti errori in un futuro prossimo.
+    \item \textit{Needless complexity}, indica la presenza di elementi che attualmente sono del tutto inutili. Ciò avviene frequentemente quando gli sviluppatori tentano di anticipare cambiamenti rispetto a requisiti funzionali, facilitando l'adattamento a possibile modifiche. Nonostante, potrebbe consistere in un \textit{trade-off} tra la spesa sostenuta e l'introito ricevuto, poichè sovrastimati i reali requisiti funzionali requisiti.
+    \item \textit{Needless repetition}, indica la cattiva abitudine di riadattare porzioni di codice già esistenti per propri processi esecutivi, la quale potrebbe essere disastrosa per sviluppi futuri. Tpicamente avviene in situazioni in cui non sia posto un corretto livello di astrazione, in cui attività ed elementi sono condivisi da moltitudini di classi; in questi casi occorre stabilire un \textit{abstract layer} aggiuntivo, implementando \textit{interfacce}.
+    \item \textit{Opacity}, è la tendenza che rende di difficile comprensione il progetto condotto. Il codice sorgente potrebbe essere scritto in maniera chiara ed espressiva, oppure in modo confusionario e convulsionario. Certamente una costante simile potrebbe rappresentare un punto di arbitrio tra una maggiore o minore \textit{readability}, la quale essendo una qualità interna consiste un vantaggio per gli stessi sviluppatori. 
+\end{itemize}
+Comunque sia, proseguire nell'implementazione e sviluppo di requisiti funzionali comporta da sè ad un peggioramento della qualità del codice, indipendentemente dal conseguimento dei principi carratteristici.
+
+\end{document}                  
