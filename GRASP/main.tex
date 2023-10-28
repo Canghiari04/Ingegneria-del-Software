@@ -67,7 +67,7 @@ Come assegnare propriamente responsabilità alle istanze delle classi software.\
 UML potrebbe definire un numero sempre più elevato di responsabilità tra le classi, e lo stesso processo esecutivo potrebbe richiedere una quantità crescente di vincoli comportamentali. Buona pratica consiste nell'assegnare le \textit{responsabilities} tra \textit{software classes} durante la modellazione dell'interazioni tra oggetti; se eseguito correttamente il sistema tenderà ad essere più semplice da comprendere, mantenendo l'opportunità della qualità interna \textit{reusability}.\vspace*{14pt}\\ 
 \textit{Soluzione}\\
 La soluzione consiste nella sistematizzazione della classe software che acquisca la responsabilità. L'espressione riportata indica che l'assegnamento di responsability dovrebbe accadere nei confronti di classi già esistenti, scegliendo tra quelle che comprendano il numero maggiori di informazioni necessarie.\vspace*{14pt}\\
-\textbf{Definizione Creator}\vspace*{7pt}\\
+\textbf{Creator}\vspace*{7pt}\\
 \textit{Problema}\\
 Come scegliere chi dovrebbe essere il responsabile della creazione di nuove istanze di classi software.\vspace*{7pt}\\
 La creazione di oggetti è una delle pratiche più comuni di un linguaggio legato al padarigma degli oggetti. Conseguentemente, sarebbe utile individuare un principio in grado di stabilire una responsabilità affine all'istenze di oggetti. Una correlazione corretta della Responsability potrebbe alludere ad una maggiore chiarezza sintattica e alla massimizzazione dell'\textit{incapsulazione} e della qualità \textit{reusability}.\vspace*{14pt}\\
@@ -81,7 +81,7 @@ Adoperando una semplificazione semantica, l'assegnazione della responsabilità a
     \item B è in possesso di tutti i dati necessari per poter richiamare la funzione della classe software A, banalmente ha disposizione tutti gli attributi sufficienti per il metodo di destinazione
 \end{itemize}
 Nel caso più classi dovessero rispettare condizioni elencate, si tende a premiare effettività che comprendano le prime due caratteristiche illustrate.\vspace*{14pt}\\
-\textbf{Definizione Creator}\vspace*{7pt}\\
+\textbf{Controller}\vspace*{7pt}\\
 \textit{Problema}\\
 Come scegliere quale oggetto debba ricevere e coordinare un'operazione del sistema software.\vspace*{7pt}\\
 Differenti sono i \textit{patterns} valutativi in cui possono essere presi in considerazione candidati piuttosto simili fra loro, in relazione alle classi poste all'interno del domain model. Il termine \textit{controller} è adottato proprio per esprimere una soluzione al problema; \textit{classi di controllo} potrebbero divenire uno strato posto tra classi di alto livello, quindi affini alla logica algoritmica, e classi di basso livello, per cui in relazione ad una raffigurazione dell'entità usufruibili dall'utente finale. L'utilizzo di uno scudo sovrapposto permette di isolare elementi dinamici, proprio come \textit{user interface}, le quali non devono mai interagire con classi prettamente legate allo sviluppo di metodi basici (\textit{si ricordi l'activity SaleManager all'interno del capitolo design goal, posto in mezzo alle attività UI e sale}).\vspace*{14pt}\\
