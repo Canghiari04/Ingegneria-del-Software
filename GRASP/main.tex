@@ -85,6 +85,48 @@ Nel caso più classi dovessero rispettare condizioni elencate, si tende a premia
 \textit{Problema}\\
 Come scegliere quale oggetto debba ricevere e coordinare un'operazione del sistema software.\vspace*{7pt}\\
 Differenti sono i \textit{patterns} valutativi in cui possono essere presi in considerazione candidati piuttosto simili fra loro, in relazione alle classi poste all'interno del domain model. Il termine \textit{controller} è adottato proprio per esprimere una soluzione al problema; \textit{classi di controllo} potrebbero divenire uno strato posto tra classi di alto livello, quindi affini alla logica algoritmica, e classi di basso livello, per cui in relazione ad una raffigurazione dell'entità usufruibili dall'utente finale. L'utilizzo di uno scudo sovrapposto permette di isolare elementi dinamici, proprio come \textit{user interface}, le quali non devono mai interagire con classi prettamente legate allo sviluppo di metodi basici (\textit{si ricordi l'activity SaleManager all'interno del capitolo design goal, posto in mezzo alle attività UI e sale}).\vspace*{14pt}\\
+Concludendo, un controller non rappresenta un'interfaccia finale con cui utenti possano interagire, ma definisce l'architettura comportamentale del sistema software dinnanzi alla ricezione e gestione di eventi.\vspace*{14pt}\\
 \textit{Soluzione}\\
-...\vspace*{14pt}\\
+Come già accenato dall'introduzione del problema, porre responsabilità relative alla gestione di eventi del sistema dovrebbe avvenire nei confronti di interfacce create appositamente per la manipolazione di trasferimenti di dati e richiesta di informazioni. L'assegnazione richiede che siano rispettate almeno una delle seguenti condizioni, quali:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item Una classe simile rappresenta il cosiddetto \textit{root object}, ossia l'elemento che il software in questione provvede ad interpellare con maggiore frequenza, spesso illustrato come il sottosistema che contiene tutte le \textit{variazioni comportamentali di facciata}, ossia la totalità di funzioni che una \textit{GUI} implementata possa richiedere alle \textit{high level classes}, mediante un \textit{controller}
+    \item La classe è denominata tramite il nominativo di riferimento al \textit{caso d'uso} modellato, si ricorda che da un unico \textit{use case} è possibile modellare un \textit{sequence diagram} molto più articolato, in cui è anteposta la nomenclatura \textit{Handler}, \textit{Controller} oppure \textit{Session}. Per cui, attuando una semplificazione, qualora adottato \textit{UseCaseNameController} esso sarà il punto cardine su cui tutti gli eventi del caso d'uso faranno riferimento
+\end{itemize}\vspace*{7pt}
+\textbf{Low Coupling}\vspace*{7pt}\\
+\textit{Problema}\\
+Come stabilire dinamiche che scoraggino \textit{elevata dipendenza} e \textit{impatto modellativo}, affinchè si possa massimizzare il \textit{riutilizzo}.\vspace*{7pt}\\
+\textbf{Coupling} è una misura di come un elemento sia fortemente connesso o meno rispetto a possibili corrisposti. Per elemento si intende un insieme di caratterizzazioni, come classi, sistemi oppure sottosistemi. Per cui un elemento con un \textit{low coupling}, ossia un basso layer di accoppiamento, non è dipendente da un numero crescente di entità, mentre in maniera opposta un elemento è detto \textit{strong coupling} qualora sia artefice di \textit{contesti dipendenti}. Si nota nuovamente la centralità delle \textit{dipendenze} e delle problematiche derivanti da esse, totalmente contrarie rispetto all'obiettivo del pattern illustrato, tra cui:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item Cambiamenti suscitano modifiche locali delle classi, situazione contraria rispetto all'\textit{OO}, ossia \textit{Open Closed Principle}
+    \item Maggiore complessità nell'intento di isolare elementi software
+    \item Maggiore complessità relativa al \textit{riutilizzo} dato che l'implementazione delle classi ha portato ad un numero elevato di dipendenze, producendo un effetto a cascata
+\end{itemize}\vspace*{7pt}
+\textit{Soluzione}\\
+In pratrica, il \textit{livello di accoppiamento} non può essere considerato come un'entità a sè stante da ulteriori principi, tra cui \textit{Information Expert} oppure \textit{High Coesion}. Spesso nelle proposte valutative è considerato come un fattore attuabile solamente con la sequenzialità implementativa della progettazione. \textbf{Mettere esempio del libro Register, Payment ...}\vspace*{14pt}\\
+\textbf{High Coesion}\vspace*{7pt}\\
+\textit{Problema}\\
+Come rendere elementi comprensivi e maneggevoli, i quali possano essere anche un termine di supporto per il pattern valutativo \textit{Low Coupling}.\vspace*{14pt}\\
+Il problema potrebbe essere riassunto semplicemente come mantenere una complessità modellativa costante e manipolabile. Similmente al pattern \textit{Low Coupling}, è introdotta una misura dedicata a tale tipologia di risoluzione, la \textit{coesione}. La \textit{functional cohesion} è la capacità adottata per distinguere il grado di correlazione di una \textit{responsabilità} rispetto ad un'ipotetica associazione ad elementi del dominio, come classi o sistemi. Classi con un livello elevato di responsabilità, non indicano una quantità operativa consistente, ma definisce un elevato layer di coesione. Per cui l'assegnazione di responsabilità non va di pari passo rispetto all'operatività inclusa all'interno dell'elemento del dominio, anzi classi con basso livello di coesione illustrano situazioni sormontate dalla quantità di funzionalità da eseguire. I difetti relativi a quest ultimo passaggio sono descritti come segue:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item Difficile comprensione e manutenzione
+    \item Il principio \textit{reusable} non è attuabile
+    \item Piuttosto sensibili a modifiche, piccole variazioni potrebbero provare enormi cambiamenti
+\end{itemize}\vspace*{7pt}
+\textit{Soluzione}\\
+Equivalente a \textit{Low Coupling}, il pattern \textit{High Coesion} non può essere attuato senza considerare l'intero contesto delle responsabilità già adottate e dei principi di riferimento. Occorre quindi applicare una certa granularità all'interno del \textit{domain model}, stanziando classi che abbiano una coerenza a livello comportamentale, ossia siano riportati metodi appartenenti ad uno stesso insieme modellativo. \textbf{Mettere esempio ?}\vspace*{14pt}\\
+\textbf{Indirection}\vspace*{7pt}\\
+\textit{Problema}\\
+Come assegnare responsabilità affinchè sia possibile ovviare ad un accoppiamento tra due o più elementi, e come attuare il processo opposto al coupling per supportare un riutilizzo potenzialmente maggiore.\vspace*{14pt}\\
+In questo contesto gioca un ruolo fondamentale l'aspetto della \textit{pura invenzione}, o meglio definito \textbf{pure fabrication}. Non tratta la creazione di elementi senza un rigore modellativo e logico, ma attua un iter di step affinchè sia necessaria una figura che possa sia elaborare funzioni di \textit{coupling} che di \textit{de-coupling}. Dopo aver analizzato tutte le classi presenti a cui applicare tale responsabilità, se non individuate caratteristiche che possano mantenere un livello elevato di coesione e nessuna di esse definisca un \textit{Information Expert}, è necessario introdurre entità, mediatori che possano allineare e disallineare dipendenze tra classi.\vspace*{14pt}\\
+\textit{Soluzione}\\
+Le responsabilità dovrebbero essere assegnate ad un \textit{intermediario}, ossia un mediatore tra differenti componenti del sistema software che non siano direttamente dipendenti.\vspace*{14pt}\\
+\textbf{Protected Variations}\vspace*{7pt}\\
+\textit{Problema}\\
+Come progettare elementi affinchè le loro instabilità non siano d'impatto su altri componenti della modellazione.\vspace*{14pt}\\
+Il pattern \textit{Protected Variations} è essenzialmente al pari del principio \textit{OCP}, \textit{Open Closed Principle}, il quale afferma che una classe dovrebbe essere aperta a nuove funzionalità ma non al cambiamento di metodi già implementati. Per cui rimanda all'uso di astrazioni modellative qualora vi sia la netta necessità, come le interfacce, affinchè cambiamenti legati a \textit{low level classes} non riguardino metodi legati alla logica algoritmica. A favore di quanto detto, si adopera in questa tematica la \textit{legge di Demetra}; essa formula il pretesto secondo cui una classe dovrebbe interagire, mediante metodi, chiamate alle funzioni interessate oppure alla creazione di istanze, solamente con entità di cui abbia lo stretto collegamento. Semplicimente, vanificando il contesto teorico, la classe dovrebbe invocare procedure di cui abbia tutto il necessario, evitando di gestire dipendenze superflue.\vspace*{14pt}\\
+\textit{Soluzione}\\
+La soluzione prevede l'identificazione antecedente di elementi soggetti ad instabilità, assegnando responsabilità ad interfacce che contengano l'insieme dell'entità citate. Concludendo, una piccola nota aggiuntiva, consiste che il termine \textit{interfaccia} sia adoperato nel suo più ampio senso etimologico, principalmente a livello di astrazione piuttosto che implementativo, come accadrebbe per linguaggi orientati al paradigma degli oggetti, stabilendo una struttura \textit{flessibile} improntata ad adeguarsi a possibili modifiche.
 \end{document}                  
