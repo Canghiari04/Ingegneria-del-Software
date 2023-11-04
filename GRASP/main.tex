@@ -67,6 +67,11 @@ Come assegnare propriamente responsabilità alle istanze delle classi software.\
 UML potrebbe definire un numero sempre più elevato di responsabilità tra le classi, e lo stesso processo esecutivo potrebbe richiedere una quantità crescente di vincoli comportamentali. Buona pratica consiste nell'assegnare le \textit{responsabilities} tra \textit{software classes} durante la modellazione dell'interazioni tra oggetti; se eseguito correttamente il sistema tenderà ad essere più semplice da comprendere, mantenendo l'opportunità della qualità interna \textit{reusability}.\vspace*{14pt}\\ 
 \textit{Soluzione}\\
 La soluzione consiste nella sistematizzazione della classe software che acquisisca la responsabilità. L'espressione riportata indica che l'assegnamento di responsability dovrebbe accadere nei confronti di classi già esistenti, scegliendo tra quelle che comprendano il numero maggiori di informazioni necessarie.\vspace*{14pt}\\
+\textit{Caso di studio}\\
+In relazione alla costruzione di un sistema software in grado di attribuire la spesa finale che il cliente dovrà sostenere pur di ottenere i prodotti selezionati, occorre definire il responsabile che definirà il costo totale. Secondo il pattern presentato, innanzitutto si osserva la classe software che contenga il numero maggiore di informazioni richieste, analizzando sia il design model che il domain model, nonostante occorre dare principale rilevanza al primo citato.\vspace*{14pt}\\Tuttavia assumendo la totale mancanza di un design model di riferimento, l'unico diagramma in grado di illustare ciò che sia necessario per un'implementazione software consiste in un domain model. Per cui, data la presenza della classe \textit{Sale} sarà traslata anche all'interno del design model, a cui sarà imposta la responsabilità di conoscere il totale della spesa. Nonostante questo approccio supporta un livello rappresentazionale piuttosto basso, il quale si sofferma concretamento su ciò che deriva da un domain model legato strettamente alla realtà.\vspace*{14pt}\\Per cui è necessario conoscere l'intera \textit{lista dei prodotti} voluti e le \textit{subtotals} di ogni istanza dedicata. In questo contesto l'uso di un \textit{diagramma di sequenza} potrebbe aiutare nell'intento. Dalla figura sottostante, si nota come i due diagrammi possano variare di molto a livello di responsabilità, dove non solo la classe \textit{Sale} rappresenterà un ruolo fondamentale. Infatti si osserva la presenza di due classi software aggiuntive, quali \textit{SaleLineItems} e \textit{ProductSpecification}, dove la prima provvederà a restituire il \textit{subtotal} dei prodotti scannerizzati fino ad un dato momento, mentre la corrisposta provvede a indicare il prezzo specifico dell'articolo. 
+\begin{center}
+    \includegraphics*[width=0.9\textwidth]{foto 1.png}
+\end{center}
 \textbf{Creator}\vspace*{7pt}\\
 \textit{Problema}\\
 Come scegliere chi dovrebbe essere il responsabile della creazione di nuove istanze di classi software.\vspace*{7pt}\\
@@ -81,6 +86,12 @@ Adoperando una semplificazione semantica, l'assegnazione della responsabilità a
     \item B è in possesso di tutti i dati necessari per poter richiamare la funzione della classe software A, banalmente ha a disposizione tutti gli attributi sufficienti per il metodo di destinazione
 \end{itemize}
 Nel caso più classi dovessero rispettare le condizioni elencate, si tende a premiare effettività che comprendano le prime due caratteristiche illustrate.\vspace*{14pt}\\
+\textit{Caso di studio}\\
+Tale sezione domanda chi dovrebbe essere il responsabile della creazione di istanze di \textit{SaleLineItems}. Secondo il pattern \textit{Creator}, dovrebbe essere scelta la classe che compone, aggrega oppure contiene le istanze di \textit{SaleLineItems}. Dato che \textit{Sale} rappresenta una classe che contiene più istanze di \textit{SaleLineItems}, potrebbe essere un buon candidato a cui assegnare la \textit{responsabilità di creazione}.\vspace*{7pt}
+\begin{center}
+    \includegraphics[width=0.9\textwidth]{foto 2.png}
+\end{center} 
+Nuovamente, il contesto in cui le responsabilità siano decise e assegnate avviene durante la fase di progettazione dell'\textit{interaction diagram}.\vspace*{14pt}\\
 \textbf{Controller}\vspace*{7pt}\\
 \textit{Problema}\\
 Come scegliere quale oggetto debba ricevere e coordinare un'operazione del sistema software.\vspace*{7pt}\\
@@ -104,7 +115,12 @@ Come stabilire dinamiche che scoraggino \textit{elevata dipendenza} e \textit{im
     \item Maggiore complessità relativa al \textit{riutilizzo} dato che l'implementazione delle classi ha portato ad un numero elevato di dipendenze, producendo un effetto a cascata
 \end{itemize}\vspace*{7pt}
 \textit{Soluzione}\\
-In pratrica, il \textit{livello di accoppiamento} non può essere considerato come un'entità a sè stante da ulteriori principi, tra cui \textit{Information Expert} oppure \textit{High Coesion}. Spesso nelle proposte valutative è considerato come un fattore attuabile solamente con la sequenzialità implementativa della progettazione. \textbf{Mettere esempio del libro Register, Payment ...}\vspace*{14pt}\\
+In pratrica, il \textit{livello di accoppiamento} non può essere considerato come un'entità a sè stante da ulteriori principi, tra cui \textit{Information Expert} oppure \textit{High Coesion}. Spesso nelle proposte valutative è considerato come un fattore attuabile solamente con la sequenzialità implementativa della progettazione.\vspace*{14pt}\\
+\textit{Caso di studio}\\
+Si considerino le classi \textit{Register}, \textit{Payment} e \textit{Sale}. Assumendo che l'obiettivo ritragga la creazione un'istanza di pagamento affinchè sia associata alla classe \textit{Sale}. In una raffigurazione fedele alla realtà, il pattern \textit{Creator} suggerisce che sia \textit{Register} l'artefice della creazione di istanze di \textit{Payment}, il quale potrebbe successivamente inoltrare tutto il necessario a \textit{Sale}. In questo contesto, l'assegnamento di una duplice responsabilità a \textit{Register}, prevede che la classe in questione abbia a disposizione tutte le informazioni necessarie, pur di riuscire nell'intento.\vspace*{4pt}
+\begin{center}
+    \includegraphics*[width=0.7\textwidth]{foto 3.png}
+\end{center} 
 \textbf{High Coesion}\vspace*{7pt}\\
 \textit{Problema}\\
 Come rendere elementi comprensivi e maneggevoli, i quali possano essere anche un termine di supporto per il pattern valutativo \textit{Low Coupling}.\vspace*{14pt}\\
@@ -116,7 +132,12 @@ Il problema potrebbe essere riassunto semplicemente come mantenere una complessi
     \item Piuttosto sensibili a modifiche, piccole variazioni potrebbero provocare enormi cambiamenti
 \end{itemize}\vspace*{7pt}
 \textit{Soluzione}\\
-Equivalente a \textit{Low Coupling}, il pattern \textit{High Coesion} non può essere attuato senza considerare l'intero contesto delle responsabilità già adottate e dei principi di riferimento. Occorre quindi applicare una certa granularità all'interno del \textit{domain model}, stanziando classi che abbiano una coerenza a livello comportamentale, ossia siano riportati metodi appartenenti ad uno stesso insieme modellativo. \textbf{Mettere esempio ?}\vspace*{14pt}\\
+Equivalente a \textit{Low Coupling}, il pattern \textit{High Coesion} non può essere attuato senza considerare l'intero contesto delle responsabilità già adottate e dei principi di riferimento. Occorre quindi applicare una certa granularità all'interno del \textit{domain model}, stanziando classi che abbiano una coerenza a livello comportamentale, ossia siano riportati metodi appartenenti ad uno stesso insieme modellativo.\vspace*{14pt}\\
+\textit{Caso di studio}\\
+Lo stesso caso di studio analizzato in \textit{Low Coupling} può essere inizializzato per \textit{High Coesion}. Come già illustrato, il fatto che la classe \textit{Register} sia responsabile della creazione delle due istanze rappresenta una scelta accettabile, all'interno del contesto. Tuttavia se si dovesse continuare a responsabilizzare la classe \textit{Register} per ogni futura operazione del sistema software, renderà l'elemento di difficile comprensione e di totale mancanza di coesione tra le funzionalità implementate. Per cui è necessario introdurre un'ulteriore effettività, sempre espressa mediante un \textit{interaction diagram}, la quale proponga un passaggio intermedio, il quale può essere propriamente considerato come definito dal pattern \textit{Indirection}.
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{foto 4.png}
+\end{center}
 \textbf{Indirection}\vspace*{7pt}\\
 \textit{Problema}\\
 Come assegnare responsabilità affinchè sia possibile ovviare ad un accoppiamento tra due o più elementi, e come attuare il processo opposto al coupling per supportare un riutilizzo potenzialmente maggiore.\vspace*{14pt}\\
