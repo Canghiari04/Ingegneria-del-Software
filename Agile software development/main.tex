@@ -80,4 +80,50 @@ Esistono molte pratiche che adottano l'insieme dei principi descritti precedente
     \item \textit{Piccola}, illustrando una realtà apparentemente minuta, che contraddistingue un'unica funzionalità, essa deve essere eleborata in una sola \textit{iterazione}. Al termine del processo esecutivo, la funzionalità elaborata è considerata conclusa. Qualora non siano di piccola dimensione, per cui ritraendo problematiche di spessore, si attua la strategia dei \textit{pattern}, in relazione ad una particolare avversità si adotta una soluzione ricorrente, anche se essa non prevede un uso di codice semplice e non articolato
     \item \textit{Testabile}, indica uno dei punti cardine dei \textit{metodi agili}, in cui l'implementazione di una user story è conclusa solamente quando è conforme al \textit{test di accesso}. Qualora non sia verificata la conformità allora la progettazione della funzionalità non può essere ritenuta terminata
 \end{itemize}
+
+\subsection*{Agile and evolution}
+\large
+Come già descritto, spesso in un team di sviluppo si tende ad utilizzare la maggior parte del tempo a disposizione e delle risorse per rendere esaustiva la documentazione relativa al sistema software che dovrà essere implementato. Tuttavia tale approccio tende a soffermarsi su \textit{questioni burocratiche}, accontando il vero sviluppo software legato ai requisiti funzionali.\vspace*{14pt}\\
+Per cui lo \textit{sviluppo} rappresenta una fase fondamentale ma non sufficiente per completare il lifecycle del sistema software; occorre promuovere un'evoluzione della soluzione attuata, affinchè sia garantito un comportamento adattivo che si adegui a possibili modifiche oppure ad aggiunte di funzionalità.\vspace*{14pt}\\
+La metodica \textbf{agile-evolution} raffigura un modalità che ovvia alla costringente stesura di documentazione, focalizzandosi sulla condivisione della conoscenza acquisita durante fasi di implementazione del codice mediante la scrittura di un \textit{piccolo archivio}.\vspace*{14pt}\\
+La realizzazione della documentazione deve avvenire al di fuori delle fasi prestabilite per l'implementazione del codice, con l'elevata probabilità che la stesura dell'archivio non venga mai effettivamente concretizzata. Ciò non rappresenta una mancanza di estrema importanza, poichè in \textit{agile software development} le informazioni di spessore sono veicolate tramite il dialogo, ponendo in secondo luogo la documentazione, anche se una totale assenza di uno storico relativo al lavoro svolto potrebbe provocare difficoltà qualora il progetto software sia demandato ad altri team di sviluppo.
+
+\subsection*{Extreme programming}
+\large
+\textbf{Extreme programming} è un metodologia agile ideata dal teorico \textit{Beck}, personaggio che nel panorama della materia trattata capì l'importanza delle dipendenze all'interno dello sviluppo di un sistema software. Per certi aspetti è molto simile al \textit{manifesto agile}, ma provvede a focalizzarsi su ulteriori caratterizzazioni.\vspace*{14pt}\\
+\textit{XP} tende a valorizzare attività che ovviano alla stesura di una documentazione dettagliata, ponendo maggiore importanza sulla concreta implementazione della soluzione. Per cui sono imposti all'interno del team atteggiamenti che ritraggono il dialogo tra gli sviluppatori, la scrittura del codice oppure la progettazione di soluzioni inerenti a problemi sorti.\vspace*{14pt}\\
+Si fonda, come da descrizione precedente, su valori legati alla comunicazione all'interno del team di sviluppo, all'adozione di soluzioni più semplici possibili affinchè sia possibile superare l'ostacolo ed infine alla resposabilizzazione di ogni componente del gruppo, rendendolo partecipe attivamente alla progettazione del sistema software; tuttavia per rendere concreto ciò che è stato trattato, occorre attuare una serie di principi che contraddistinguono \textit{extreme programming}, suddivisi come segue:
+\begin{itemize}[label={-}]
+    \item \textit{Fine scale feedback}\vspace*{7pt}\\
+    \textit{Definizione informale}\\
+    Fine scale feedback ammette che qualsiasi decisione strutturale deve essere condivisa da tutto il team di sviluppo.\vspace*{7pt}\\
+    Per cui sono adottate metodologie relative alla definizione precedente, quali:
+    \begin{itemize}
+        \item La stesura delle funzionalità è affidata a due entità del gruppo di sviluppo, dove tendenzialmente avviene uno scambio di mansioni tra le due figure, come la scrittura del codice e l'analisi della soluzione proposta
+        \item Si attuano fasi di test dello sviluppo adeguato fino a un dato momento, in cui, qualora siano verificate anomalie, occorre sviluppare la soluzione più semplice possibile, a cui, successivamente, si adattano attività di refactoring
+        \item Infine, all'interno del team non devono esistere suddivisioni nette tra i membri, e ognuno di essi deve acquisire le competenze necessarie per cimentarsi in qualsiasi sezione dello sviluppo del software
+    \end{itemize}
+    Concludendo, tramite questo principio, è imposta la coesione tra ogni elemento del team, in cui si tende a valorizzare la partecipazione di ognuno di essi nell'ambito decisionale e progettuale del sistema software attuato.
+    \item \textit{Continuos process}\vspace*{7pt}\\
+    \textit{Definizione informale}\\
+    ...\vspace*{7pt}\\
+    Nuovamente sono introdotte ulteriori pratiche che contraddistinguono \textit{continuos programming}, suddivise come:
+    \begin{itemize}
+        \item \textit{Continuos integration}, qualora siano attuate delle modifiche, occorre che siano riportate immediatamente all'interno della soluzione del \textit{code base}, dove il termine proposto indica l'insieme di punti necessari per ottenere la soluzione software
+        \item \textit{Design improvement}, la stesura di risoluzioni semplici a problemi sorti non deve accontanare l'attività di \textit{refactoring}, poichè potrebbero rappresentare una situazione di \textit{debito tecnico}
+        \item \textit{Small releases}, adeguare lo sviluppo software affinchè sia possibile rilasciare versioni del sistema monitorabili e analizzabili, affinchè ciò si possa tradurre in un vantaggio competitivo e dichiarare se la progettazione attuata sia conforme con \textit{user stories}, oppure semplicemente con i requisiti funzionali dell'utente finale
+    \end{itemize}
+    \item \textit{Shared understanding}\vspace*{7pt}\\
+    \textit{Definizione informale}\\
+    ...\vspace*{7pt}\\
+    Principio che comprende:
+    \begin{itemize}
+        \item \textit{Coding standard}, opportuno che siano definiti paradigmi di progettazione e sviluppo equivalenti per ogni membro del team 
+        \item \textit{Simple design}, processo esecutivo equivalente a \textit{test driven design}, ossia verificate anomalie si sviluppano soluzioni di estrema semplicità, a cui si adeguano attività di \textit{refactoring} affinchè si possa eliminare il \textit{debito tecnico} 
+        \item \textit{System metaphor}, in certi contesti, potrebbe rappresentare una buona idea l'utilizzo di termini, all'interno della soluzione proposta, correlati al linguaggio del domonio, ossia rendere la tematica comprensibile anche per attori posti al di fuori del team di sviluppo, nonostante spesso è raffigurato come un principio di scarsa importanza, poichè non influisce direttamente sull'implementazione dei requisiti funzionali
+    \end{itemize}
+    \item \textit{Programmer welfare}\vspace*{7pt}\\
+    \textit{Definizione informale}\\
+    \textit{Programmer welfare} pone la propria centralità sul lavoro e sviluppo cooperativo, affinchè l'implementazione del sistema software sia suddivisa in \textit{time box}, alludendo ad un progetto che debba essere svolto a step e valorizzando le interazioni tra membri del gruppo, racchiudendo l'intero contesto su cui si formula \textit{extreme programming}.
+\end{itemize}
 \end{document}
