@@ -53,7 +53,7 @@ Affinchè sia possibile comprendere quando e come applicare al meglio il pattern
 \end{center}
 Come da raffigurazione si notano i passaggi elencati precedentemente, in cui la classe \textit{Context} rappresenta il livello di astrazione necessario affinchè sia possibile intercambiare comportamenti di oggetti durante il run time.\\
 \textit{Context} a sua volta delega alla classe astratta \textit{State} la responsabilità di implementare il comportamento specifico, in cui in questo caso avviene per uno dei due \textit{behavior} esternalizzati, \textit{StateA} e \textit{StateB}; è bene sottolineare la sottile differenza che vige dal pattern \textit{Strategy}, dove nel meccanismo di delega introdotto la scelta del \textit{behavior} è imposta dall'utente finale, si ricorda il processo modellato, in cui è definita l'architettura generale dell'algoritmo affinchè siano classi derivate a specificarne l'implementazione di step specifici, mentre mediante \textit{State} sarà l'interfaccia ad imporre quale metodo debba essere considerato affinchè sia garantito il cambiamento dello stato corrente, il quale gioca un ruolo fondamentale poichè permette  intercambiabilità del processo comportamentale dell'istanza in questione.\vspace*{14pt}\\
-Infine si considera la casistica in cui debbano essere introdotte nuove funzionalità. Dato che si considera lo stretto legame posto tra \textit{comportamento-stato}, ogni volta che si debba implementare un nuovo \textit{behavior} sarà creata una nuova classe derivata che specificherà la logica logaritmica del metodo, ovviando a \textit{design smells}, come \textit{needless repetition}, e violazioni dei principi \textit{SOLID}. 
+Infine si considera la casistica in cui debbano essere introdotte nuove funzionalità. Dato che si considera lo stretto legame posto tra \textit{comportamento-stato}, ogni volta che si debba implementare un nuovo \textit{behavior} sarà creata una nuova classe derivata che specificherà la logica algoritmica del metodo, ovviando a \textit{design smells}, come \textit{needless repetition}, e violazioni dei principi \textit{SOLID}. 
 
 \subsection*{Factory}
 \large
@@ -67,7 +67,7 @@ Si pensi alla creazione di un sistema software che debba gestire le singole oper
     \item \textit{FilePersistMgr fpm = new FilePersistMgr();}
     \item \textit{fpm.makePersistent(b)};
 \end{itemize} 
-Mediante l'ausilio di un file, avviene la scrittura della transazione eseguita dei due conti, dove, tralasciando l'erronea gestione di concorrenza, una soluzione simile non può essere considerata certamente corretta, dato che si prediligie un collegamento diretto tra \textit{low level class}, colei che richiama l'istanza, e \textit{high level class}, ossia la logica logaritmica che permette la scrittura del dato bonifico sul documento. Dato che una \textit{dipendenza} è potenzialmente un percorso che possa diffondere una serie di cambiamenti, si tenta di predire il vincolo comportamentale minimizzando il possibile evento catastrofico che si potrebbe verificare all'interno della soluzione software.\vspace*{14pt}\\
+Mediante l'ausilio di un file, avviene la scrittura della transazione eseguita dei due conti, dove, tralasciando l'erronea gestione di concorrenza, una soluzione simile non può essere considerata certamente corretta, dato che si prediligie un collegamento diretto tra \textit{low level class}, colei che richiama l'istanza, e \textit{high level class}, ossia la logica algoritmica che permette la scrittura del dato bonifico sul documento. Dato che una \textit{dipendenza} è potenzialmente un percorso che possa diffondere una serie di cambiamenti, si tenta di predire il vincolo comportamentale minimizzando il possibile evento catastrofico che si potrebbe verificare all'interno della soluzione software.\vspace*{14pt}\\
 Si passa quindi all'uso di layer astratti, come interfacce, capaci di porre una \textit{schermatura} che consenta ad alcune funzionalità di riportare modifiche solamente ad una delle due parti in gioco, \textit{HLC} oppure \textit{LLC}, ovviando alla possibilità che si possa riverbare sull'intera struttura del sistema software adeguato.
 \begin{itemize}[label={ }, leftmargin=1cm]
     \itemsep0em
@@ -106,7 +106,10 @@ Riassumendo occorre realizzare una soluzione che mantenga in considerazione alcu
     \item \textit{Interface Segregation}, definire un'interfaccia più ridotta possibile che possa contenere la dipendenza dell'oggetto notificante rispetto alla classe in ricezione
     \item \textit{Dipendency Inversion}, dipendere da astrazioni, ossia applicare \textit{abstract layer}, affinchè sia posta una schermatura tra \textit{low level classes} e \textit{high level classes}
 \end{itemize}
-L'insieme di queste tematiche è affrontato dal \textit{Observe pattern}, il quale ammette:\vspace*{7pt}\\
+L'insieme di queste tematiche da vita al pattern \textit{Observe}.
+
+\subsection*{Observer Pattern}
+\large
 \textit{Soluzione}\\
 Tramite il \textit{pattern} avviene la costruzione di una classe astratta posta tra l'istanza notificante e l'oggetto in ascolto, affinchè tutte le dipendenze della prima citata possano essere automaticamente segnalate oppure aggiornate sul cambiamento di stato.\vspace*{14pt}\\
 \textit{Caso di studio}\\
@@ -115,4 +118,13 @@ Tramite il \textit{pattern} avviene la costruzione di una classe astratta posta 
 \end{center}
 Come da raffigurazione, la classe \textit{Subject} rappresenta l'entità che deve comunicare alle proprie dipendenze il cambiamento del proprio stato, mentre \textit{ConcreteObserver} indica la classe concreta in ascolto o in ricezione di modifiche, ossia il vincolo comportamentale prima definito. Ribadito più volte in altri contesti simili, l'uso di un'interfaccia astratta permette di interrompere lo stretto collegamento tra le classi in questione, rispettando soprattutto i tre principi prima elencati.\vspace*{7pt}\\
 Piccola nota è relativa ai metodi implementati da \textit{Subject}, in cui \textit{attach()} è implementato per aggiungere un osservatore, \textit{detach()} permette di eliminare una dipendenza dell'elenco di notifica infine \textit{notify()} garantisce l'aggiornamento a tutti gli osservatori. 
+
+\subsection*{Facade Pattern}
+\large
+\textit{Problema}\\
+Come isolare low level classes dalla struttura logica algoritmica del sottosistema?\vspace*{14pt}\\
+Spesso capita che applicazioni siano suddivise in sottosistemi, in cui un sottosistema rappresenta l'insieme degli elementi dell'architettura principale implementati affinchè siano adoperabili le funzionalità desiderate e necessarie. In un contesto simile qualsiasi classe di basso livello deve riconoscere l'entità che contraddistinguono il \textit{sottosistema}, in cui se non è presente il corretto livello di astrazione potrebbe tradursi in una dipendenza diretta tra low level classes e high level classes, violando il principio \textit{Dipedency Inversion Principle}.\vspace*{14pt}\\
+\textit{Soluzione}\\
+Isolare classi contenenti logica algoritmica mediante un interfaccia di alto livello, la quale rendi più facile l'uso delle funzionalità mantenute nel sottosistema.\vspace*{14pt}\\
+Un'\textit{interfaccia di alto livello} indica una \textit{empty class}, ossia raffigura un'entità di sola facciata, in cui l'obiettivo principale consiste nella costruzione di una schermatura affinchè cambiamenti del sottosistema non si riflettino su elementi del modello legati a \textit{User Interface} e viceversa. Riferendosi nuovamente ai principi che valorizzano sistemi software di qualità, l'uso di un pattern simile nonn permette che siano rispettati i vincoli posti da \textit{SOLID}. \textit{Facade} viola il principio \textit{Single Responsability Principle}, in cui all'interno della classe, resa solamente di \textit{facciata}, non è presente un unico asse di cambiamento poichè raggruppa funzionalità eterogenee; tuttavia, dato che l'elemento implementato è privo di logica operativa, opera solamente come coordinatore, non rappresentando un pericolo di erronea gestione all'interno del sistema software. 
 \end{document}
