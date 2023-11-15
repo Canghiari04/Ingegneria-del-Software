@@ -1,0 +1,80 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\titleformat{\section}
+{\LARGE\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\Large\bfseries}{\thesection}{1em}{}
+
+\begin{document}
+\pagestyle{empty}
+\section*{Software testing}
+\large
+
+\subsection*{Introduzione}
+\large
+Obiettivi:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \itemsep0em
+    \item Comprendere l'importanza e l'efficacia nell'utilizzo di fasi test all'interno dello sviluppo di un sistema software
+    \item Adeguare propriamente metodiche di testing affinchè sia acquisibile un certo livello di confidenza con l'ambiente sviluppato
+\end{itemize}
+Parte cruciale all'interno di un qualsiasi processo di sviluppo software consiste nella creazione di \textit{testing tools}, i quali provvedono a specificare il livello di \textit{correttezza} e di \textit{validità} del progetto implementato. Si sottolinea la sottile differenza che contraddistingue l'etimologia di \textit{testing}; essa non rappresenta una metodica che specifica il grado di qualità della soluzione proposta, anzi essa è adoperata per ulteriori scopi, affini alla creazione di un concreto livello di \textit{confidenzialità} capace di esprimere se la struttura implementata all'interno del sistema sia corretta o meno.\vspace*{14pt}\\
+Rispetto a quanto detto si analizzano due tematiche inerenti alla breve descrizione precedente, in cui il termine \textit{software testing} è accomunato da una duplice espressione, ossia:\vspace*{14pt}\\
+\textit{Definizione informale}\\
+Il termine \textit{software testing} promuove due caratterizzazioni suddivise in \textit{validità} e \textit{veridicità}; la prima esprime la valutazione attuata per definire la bontà dell'architettura del sistema software, mentre la corrisposta propone una stima della correttezza dell'implementazione adeguata fino ad ora.\vspace*{14pt}\\
+Concludendo l'intento di un meccanismo simile consiste nella rivelazione del maggior numero possibile di diffetti, poichè il costo relativo alla correzione di situazioni errate è proporzionalmente diretto al tempo di risoluzione. Riassumendo le fasi di test sono fondamentali per veicolare il progetto verso un vantaggio competitivo, ma ciò può avvenire solamente se tali comportamenti siano immediatamente attuati e ripetitivi nel \textit{lifecycle} del sistema.  
+
+\subsection*{Sintassi}
+\large
+Di seguito è riportato l'insieme di definizioni che contraddistinguono un contesto simile a \textit{software testing}.\vspace*{14pt}\\
+\textit{Definizione defect}\\
+Un \textit{defect}, detto anche \textit{bug}, indica un errore logico, che non sempre si traduce in un concreto malfunzionamento.\vspace*{7pt}\\
+Per cui un difetto è una sequenza di istruzioni, che, quando eseguite con particolari dati in input, genera un \textit{malfunzionamento}, ossia un comportamento software difforme dai requisiti espliciti. La mancata effettività del malfunzionamento avviene qualora non siano immessi i dati in input tali da evidenziare l'errore all'interno del codice che contiene il diffetto.\vspace*{14pt}\\
+\textit{Definizione failure}\\
+Un \textit{failure} rappresenta il momento in cui viene riscontrato concretamente il \textit{defect}.\vspace*{14pt}\\
+Tradotto, un \textit{malfunzionamento} indica un comportamento contrario all'aspettative, in cui, come già detto prima, si riscontra qualora programmatori o sviluppatori immettino un errore all'interno della soluzione provocando un \textit{bug}, il quale diviene un \textit{failure} solamente se poste certe condizioni.\vspace*{14pt}\\
+\textit{Definizione test case}\\
+\textit{Test case} rappresenta l'elenco che contiene una breve descrizione degli \textit{outcome} attesi da singoli processi esecutivi, i quali includono \textit{parametri}, \textit{condizioni} e \textit{risultati} attesi. Nel gergo l'insieme dei \textit{test case} da vita a \textit{test set}.
+\subsection*{Testing levels}
+\large
+I test possono essere adeguati a differenti granularità, suddividendosi in \textit{unit testing}, \textit{integration testing} e \textit{end-to-end testing}. Oltre al grado di precisione che contraddistingue ognuno di essi, sono caratterizzati da una specifica complessità, in cui è possibile porre al primo posto la tipologia \textit{end-to-end}. Di seguito è proposta una visione più dettagliata di ogni caratterizzazione, illustrata come:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item \textit{Unit testing} riferisce a un meccanismo di verifica che opera su specifiche sezioni del \textit{code base}, solitamente relative a livelli funzionali e operativi. Tendenzialmente queste tipologie di test sono adoperate da sviluppatori in concomitanza alla stesura di funzionalità, affinchè possano assicurarsi che il metodo operi correttamente. \textit{Unit test} non è in grado di analizzare la correttezza delle sezioni software prese in considerazione, ma stabilisce se i blocchi di codice possono svolgere in maniera indipendente le proprie funzionalità; si ricorda l'importanza delle \textit{dipendenze} all'interno di uno sviluppo software, capaci di inibire l'intera struttura ideata qualora sia erroneamente gestita.
+    \item \textit{Integration testing} tenta di controllare attivamente il livello di astrazione posto tra classi legate alla logica algoritmica ed entità inclini ad interfacce utente. Per cui un meccanismo di controllo simile pone la propria attenzione sulla ricerca di \textit{defects}, posti tra interazioni di elementi che compongono il modello analizzato.     
+    \item \textit{End-to-end testing} rappresenta lo strumento di analisi più complesso e costoso in assoluto, poichè tenta di controllare l'intero sistema software attuato. Solitamente non sono riscontrabili test automatizzati simili, data l'elevata difficoltà nella creazione di un tool in grado di analizzare ogni singolo dettaglio che caratterizza il progetto osservato, a causa di questa principale ragione non risulta essere molto adoperato all'interno di team di sviluppo.
+\end{itemize}
+
+\subsection*{Testing approach}
+\large
+Sono presenti differenti approcci che possono essere adeguati in fasi di \textit{software testing}, suddivisi in due famiglie \textit{dynamic} e \textit{static}. Le due metodologie illustrate sono strettamente correlate, in cui la prima citata è attuata affinchè sia possibile \textit{eseguire} il \textit{code base} pur di visualizzare i \textit{bug}, mentre la corrisposta è adoperata per \textit{analizzare} il \textit{code base} pur di individuare i \textit{defects}. Entrambe condividono la stessa finalità anche se spesso sono valorizzati approcci \textit{statici} che \textit{dinamici}; la ragione è dovuta alla netta semplicità che condividino le prime metodologie rispetto alle seconde introdotte.\vspace*{14pt}\\
+Data la netta supremazia degli approcci \textit{statici}, di seguito sono proposti alcuni dei più diffusi, quali:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item \textit{Model checking}, ...
+    \item \textit{Symbolic execution}, ...
+    \item \textit{Data-flow analysis}, ...
+    \item \textit{Abstract interpretation}, ...  
+\end{itemize} 
+
+\subsection*{Black-box testing}
+\large
+\textit{Black-box testing} è un metodo di test del software che esamina la funzionalità di un sistema senza sapere come concretamente sia implementata la propria infrastruttura interna, da cui ne deriva la denominazione. Questa metodologia può essere implementata su un qualsiasi testing layer, la quale pone maggiore attenzione sulla bontà del risultato ottenuto piuttosto del procedimento attuato per risalire al dato finale.\vspace*{14pt}\\
+Come detto in precedenza, non sono richieste conoscenze legate alle specifiche del codice, poichè il \textit{tester} è formulato in modo che conosca \textit{cosa} il sistema software dovrebbe fare, ma non su \textit{come} sia il procedimento che porti al risultato tangibile.\vspace*{14pt}\\
+Il termine \textit{black-box testing} raffigura l'insieme di approcci simili, dove i più diffusi si suddividono in:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item \textit{Boundary value analysis}, illustra una tecnica di \textit{software testing} incline alla visualizzazione del solo risultato; come da denominazione, la sua implementazione pervede l'uso di limiti, i quali possono essere associati ad un'entità inferiore e superiore, in cui il risultato sperato dovrebbe rispettare tali vincoli valorizzativi. I vincoli sono definiti \textit{punti di discontinuità}, da cui avviene la costruzione del test per osservare la correttezza del risultato ottenuto dal sistema software.   
+\end{itemize}
+\end{document}
