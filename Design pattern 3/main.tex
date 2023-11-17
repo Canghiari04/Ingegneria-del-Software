@@ -1,0 +1,48 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\titleformat{\section}
+{\LARGE\bfseries}{\thesection}{1em}{}
+
+\titleformat{\subsection}
+{\Large\bfseries}{\thesection}{1em}{}
+
+\begin{document}
+\pagestyle{empty}
+\section*{Design pattern 3}
+\large
+
+\subsection*{Introduzione}
+\large
+Obiettivi:
+\begin{itemize}
+    \renewcommand{\labelitemi}{-}
+    \itemsep0em
+    \item Applicare propriamente i pattern del modello GoF 
+\end{itemize}
+Questa sezione rappresenta il naturale conseguimento del documento \textit{Design Pattern 2}, in cui sono elencati ulteriori pattern \textit{comportamentali}, \textit{creazionali} e \textit{strutturali} del \textit{catologo GoF}.
+
+\subsection*{Singleton pattern}
+\large 
+\textit{Problema}\\
+Come garantire che sia creata una sola istanza di una classe e fare in modo che sia condivisibile dagli elementi del modello?\vspace*{14pt}\\
+\textit{Singleton} è un pattern creazionale adoperato per instanziare oggetti, in maniera tale che siano rispettati i principi di qualità del software e cercando di manipolare al meglio le dipendenze tra le classi. La volontà di implementare un meccanismo simile, avviene qualora differenti elementi del dominio richiedano lo stesso processo esecutivo, da cui saranno restituiti certi \textit{behaviors} oppure dati in \textit{output}.\vspace*{14pt}\\
+Per cui l'intento promuove la creazione di una singola istanza della classe software analizzata, affinchè essa possa essere condivisa tra le entità del sistema elaborato. Tendenzialmente è dichiarata come una variabile \textit{privata}, in quanto lo stesso \textit{costruttore} è \textit{protetto} oppure \textit{privato} ai fini del pattern presentato, a cui si associa una funzione \textit{pubblica} che incapsula al suo interno l'intero codice di inizializzazione e provvede all'accesso all'instanza in questione.\vspace*{14pt}\\
+\textit{Soluzione}\\
+Creare una \textit{singola} istanza della classe software analizzata e provvedere ad un \textit{unico punto di accesso}.\vspace*{14pt}\\
+Generalmente l'utilizzo di \textit{Singleton} avviene solo se soddisfati tre criteri comportamentali, suddivisi in:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item Sviluppo progettuale secondo il principio \textit{lazy initialization}, ossia posticipare la creazione di un oggetto fino al momento in cui non sia realmente necessario 
+    \item Non sia possibile attribuire ad alcun elemento del modello l'\textit{appartenenza} dell'istanza creata
+    \item Nonostante sia sviluppato un metodo pubblico per rendere accessibile l'oggetto della classe software, non deve essere garantita la possibilità che la funzione sia richiamabile a livello globale
+\end{itemize}
+\end{document}
