@@ -74,7 +74,7 @@ In conclusione, sono riassunti i due punti critici di \textit{inheritance} che c
 \end{itemize}
 Tutto ciò si traduce in azioni mirate che comportino lo spostamento del codice implementato per la rappresentazione di comportamenti al di fuori di contesti dipendenti, inserendo l'implementazione attuata in classi esterne.
 
-\subsection*{Template Method Pattern}
+\subsection*{Template Method (Behavioral Pattern)}
 \large
 \textit{Problema}\\
 Come condividere metodi parzialmente definiti in una gerarchia ereditaria?\vspace*{14pt}\\
@@ -90,7 +90,7 @@ Di seguito è proposto un esempio che prende in considerazione l'effettività di
 Come da raffigurazione è rappresentata la classe astratta \textit{Plotter}, la quale definisce lo schema generale dei metodi incapsulati al suo interno. In tale contesto le sottoclassi \textit{ScreenPlotter} e \textit{PrinterPlotter} adeguano il metodo \textit{DrawToDevice()}, specializzando mirate funzionalità affinchè il comportamento sia conforme con le finalità comportamentali, ovviando all'overriding dell'intero metodo.\vspace*{7pt}\\
 Tramite tale approccio è ovviato il design smell \textit{needless repetition}, per cui rispettando appieno il principio di \textit{Liskov}, rendendo l'architettura resistente ai cambiamenti.
 
-\subsection*{Strategy Pattern}
+\subsection*{Strategy (Behavioral Pattern)}
 \large
 \textit{Problema}\\
 Come separare un oggetto dal proprio comportamento e variarlo durante il run time?\vspace*{7pt}\\

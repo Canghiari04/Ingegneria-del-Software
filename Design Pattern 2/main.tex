@@ -30,7 +30,7 @@ Obiettivi:
 \end{itemize}
 Questa sezione rappresenta il naturale conseguimento del documento \textit{Design Pattern 1}, in cui sono elencati ulteriori pattern \textit{comportamentali}, \textit{creazionali} e \textit{strutturali} del \textit{catologo GoF}.
 
-\subsection*{State Pattern}
+\subsection*{State (Behavioral Pattern)}
 \large
 \textit{Problema}\\
 Come intercambiare il comportamento di un oggetto dipendente da uno stato tramite una soluzione di alta qualità?\vspace*{14pt}\\
@@ -83,7 +83,7 @@ Giunto a questo punto, interviene la \textit{pure fabrication}, ossia l'idioma \
 \end{itemize}
 Per cui si tende a spostare le responsabilità in ulteriori classi, in cui sarà l'interfaccia \textit{Factory}, in maniera totalmente autonoma, l'artefice della creazione dell'istanza della classe concreta, in cui elementi di basso livello saranno totalmente disinteressati rispetto al processo esecutivo che porti alla realizzazione dell'oggetto desiderato, ponendo quindi il corretto layer di astrazione. 
 
-\subsection*{Factory Method Pattern}
+\subsection*{Factory (Creational Pattern)}
 \large
 \textit{Problema}\\
 Come creare un'istanza di una classe senza che sia specificata l'esatta classe?\vspace*{14pt}\\
@@ -108,7 +108,7 @@ Riassumendo occorre realizzare una soluzione che mantenga in considerazione alcu
 \end{itemize}
 L'insieme di queste tematiche da vita al pattern \textit{Observe}.
 
-\subsection*{Observer Pattern}
+\subsection*{Observer (Behavioral Pattern)}
 \large
 \textit{Soluzione}\\
 Tramite il \textit{pattern} avviene la costruzione di una classe astratta posta tra l'istanza notificante e l'oggetto in ascolto, affinchè tutte le dipendenze della prima citata possano essere automaticamente segnalate oppure aggiornate sul cambiamento di stato.\vspace*{14pt}\\
@@ -119,7 +119,7 @@ Tramite il \textit{pattern} avviene la costruzione di una classe astratta posta 
 Come da raffigurazione, la classe \textit{Subject} rappresenta l'entità che deve comunicare alle proprie dipendenze il cambiamento del proprio stato, mentre \textit{ConcreteObserver} indica la classe concreta in ascolto o in ricezione di modifiche, ossia il vincolo comportamentale prima definito. Ribadito più volte in altri contesti simili, l'uso di un'interfaccia astratta permette di interrompere lo stretto collegamento tra le classi in questione, rispettando soprattutto i tre principi prima elencati.\vspace*{7pt}\\
 Piccola nota è relativa ai metodi implementati da \textit{Subject}, in cui \textit{attach()} è implementato per aggiungere un osservatore, \textit{detach()} permette di eliminare una dipendenza dell'elenco di notifica infine \textit{notify()} garantisce l'aggiornamento a tutti gli osservatori. 
 
-\subsection*{Facade Pattern}
+\subsection*{Facade (Structural Pattern)}
 \large
 \textit{Problema}\\
 Come isolare low level classes dalla struttura logica algoritmica del sottosistema?\vspace*{14pt}\\
