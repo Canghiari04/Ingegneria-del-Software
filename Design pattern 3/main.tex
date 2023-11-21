@@ -73,17 +73,17 @@ Concludendo, l'interfaccia potrebbe essere sostituita mediante una \textit{pure 
 Di seguito è illustrato un esempio che possa raffigurare certi contesti in cui il solo utilizzo di principi legati al paradigma degli oggetti non sia sufficiente per rispondere a caratteristiche comportamentali, oltre a diminuire la qualità del codice implementato.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 2.png}
+    \includegraphics[width=0.7\textwidth]{foto 2.png}
 \end{center}
-Attuando una semplificazione dell'immagine proposta, affinchè un concetto simile possa essere adoperato per contesti generali, si sottolinea la presenza di una \textit{superclasse} e un totale di tre \textit{sottoclassi}, in cui è applicato il principio del \textit{poliformismo} in maniera tale che classi derivate possano adottare un'implementazione specifica dei \textit{metodi ereditati}.\vspace*{7pt}\\
-Tuttavia, tale meccanismo di modellazione aumenta notevolmente la complessità architetturale, a causa del numero crescente di funzionalità che possano essere richieste, dove, in un domain model del genere, ogni \textit{classe figlia} richiede una propria specializzazione, formulando ricorsivamente condizioni di \textit{ereditarietà} e \textit{polimorfismo}.\vspace*{7pt}  
+Attuando una semplificazione dell'immagine proposta, affinchè un concetto simile possa essere adoperato per contesti generali, si sottolinea la presenza di una \textit{superclasse} e un totale di tre \textit{sottoclassi}, in cui è applicato il principio del \textit{poliformismo} in maniera tale che classi derivate possano adottare un'implementazione specifica dei \textit{metodi ereditati}.\\
+Tuttavia, tale meccanismo di modellazione aumenta notevolmente la complessità architetturale, a causa del numero crescente di funzionalità che possano essere richieste, dove, in un domain model del genere, ogni \textit{classe figlia} richiede una propria specializzazione, formulando ricorsivamente condizioni di \textit{ereditarietà} e \textit{polimorfismo}.\vspace*{3pt}  
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 3.png}
+    \includegraphics[width=0.7\textwidth]{foto 3.png}
 \end{center}
 Come già espresso in precedenza, ogni combinazione diviene una nuova entità da gestire, provocando un numero enorme di classi rappresentative all'interno del modello realizzato, in cui il metodo \textit{cost()}, incapsulato all'interno di sottoclassi finali, richiamerà la funzione per ogni termine antecedente, elaborando una consistente condizione di selezione (\textit{riferimento alla realizzazione di rami if-else annidati, contrari rispetto ad una software quality di spessore}).\vspace*{14pt}\\
 Una risoluzione alternativa potrebbe consistere nell'inserimento delle \textit{combinazioni} citate all'interno della \textit{classe padre}, come attributi privati booleani, in cui il metodo \textit{cost()} incapsulato mantiene la spesa per ogni supplemento aggiunto; mentre ognuna delle \textit{classi derivate} ridefiniscono la funzione aggiungendo al prezzo il \textit{costo base}.\vspace*{7pt}
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 4.png}
+    \includegraphics[width=0.7\textwidth]{foto 4.png}
 \end{center}  
 Nonostante raffiguri un approccio accettabile per implementare un sistema software con queste caratteristiche, è affetto da due problematiche, quali:
 \begin{itemize}[label={-}]
@@ -94,4 +94,17 @@ Nonostante raffiguri un approccio accettabile per implementare un sistema softwa
 
 \subsection*{Decorator (Structural Pattern)}
 \large
+\textit{Decorator} tenta di rimediare alle mancanze precedenti, aggiungendo dinamicamente \textit{responsabilità} agli oggetti; inoltre, illustra un'alternativa molto più flessibile rispetto alla gerarchia composita di \textit{sottotipi}, la quale non si addice propriamente all'estensione di \textit{funzionalità}, e nemmeno alla creazione di nuovi metodi.\vspace*{7pt}\\
+Rispetto al nuovo termine introdotto, affinchè sia appreso appieno il meccanismo del pattern in questione, è bene considerare \textit{Decorator} come se fosse un \textit{contenitore}. Ai fini della descrizione attuata è proposta un'illustrazione grafica che possa chiarire quanto detto.
+\begin{center}
+    \includegraphics[width=0.4\textwidth]{foto 5.png}
+\end{center} 
+Si analizzano le componenti nella loro singolarità, in cui:
+\begin{itemize}[label={-}]
+    \itemsep0em
+    \item \textit{ConcreteComponent}, implementa processi comportamentali 
+    \item \textit{Decorator}, contenitore 
+    \item \textit{Component}, interfaccia comune alle due entità precedenti
+\end{itemize}
+...
 \end{document}
