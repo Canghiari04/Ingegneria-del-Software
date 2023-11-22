@@ -73,7 +73,7 @@ Si analizza la progettazione di una soluzione in grado di poter attribuire la sp
 \end{center}\vspace*{7pt}
 Secondo il pattern presentato, occorre osservare la classe software che contenga il numero maggiore di informazioni congrue alla richiesta del \textit{totale spesa}, analizzando sia design model che domain model.\vspace*{7pt}\\
 Tuttavia assumendo della totale mancanza di \textit{charts modellativi}, l'unico diagramma in grado di illustrare ciò che sia necessario per implementare il vincolo comportamentale consiste in un \textit{class diagram}, come riportato nell'esempio. Per cui la \textit{responsabilità} sarà delegata alla classe software \textit{Sale}, poichè detiene il numero maggiore di risorse riconducibili alla realizzazione dell'obiettivo.\vspace*{7pt}\\
-Procedendo gradualmente, si verifica la necessità che la classe \textit{Sale} debba delegare comportamenti specifici affinchè possa apprendere la \textit{lista dei prodotti} acquistati e i \textit{subtotals} di riferimento. Proprio per questa ragione, oltre al \textit{class diagram}, è riportata la raffigurazione di un \textit{sequence diagram}. La ragione principale è dovuta alla chiara visualizzazione dell'obiettivo del \textit{pattern Information Expert}, dove la classe \textit{Sale} rappresenta l'\textit{esperto} in grado di assimilare tutte le informazioni del contesto, divenendo l'elemento del modello con il numero maggiore di informazioni necessarie.\vspace*{7pt}\\
+Procedendo gradualmente, si verifica la necessità che la classe \textit{Sale} debba delegare comportamenti specifici affinchè possa apprendere la \textit{lista dei prodotti acquistati} e i \textit{subtotals} di riferimento. Proprio per questa ragione, oltre al \textit{class diagram}, è riportata la raffigurazione di un \textit{sequence diagram}. La ragione principale è dovuta alla chiara visualizzazione dell'obiettivo del \textit{pattern Information Expert}, dove la classe \textit{Sale} rappresenta l'\textit{esperto} in grado di assimilare tutte le informazioni del contesto, divenendo l'elemento del modello con il numero maggiore di informazioni necessarie.\vspace*{14pt}\\
 \textbf{Creator}\vspace*{7pt}\\
 \textit{Problema}\\
 Come scegliere chi dovrebbe essere il responsabile della creazione di nuove istanze di classi software?\vspace*{7pt}\\
@@ -127,19 +127,19 @@ Il pattern \textit{Creator} suggerisce che sia \textit{Register} la classe artef
 \textbf{High Coesion}\vspace*{7pt}\\
 \textit{Problema}\\
 Come rendere gli elementi del modello comprensivi e maneggevoli, i quali possano essere anche un termine di supporto per il pattern valutativo \textit{Low Coupling}?\vspace*{14pt}\\
-Il problema potrebbe essere riassunto semplicemente come mantenere una complessità modellativa costante e manipolabile. Similmente al pattern \textit{Low Coupling}, è introdotta una misura dedicata a tale tipologia di risoluzione, la \textit{coesione}. La \textit{coesione} esprime il grado di appartenenza delle responsabilità implementate all'interno di classi software, ossia se modellano la medesima realtà, in cui un elevato livello di \textit{functional cohesion} raffigura che le funzionalità adoperato progettino stesse effettività, contrariamente un basso livello indica una consistente eterogeneità tra i differenti metodi incapsulati. I difetti relativi a quest'ultimo passaggio sono descritti come segue:
+Il problema potrebbe essere riassunto semplicemente in come mantenere una complessità modellativa costante e manipolabile. Similmente al pattern \textit{Low Coupling}, è introdotta una misura dedicata a tale tipologia di risoluzione, la \textit{coesione}. La \textit{functional cohesion} è la capacità adottata per distinguere il grado di correlazione di una \textit{responsabilità} rispetto ad un'ipotetica associazione ad elementi del dominio, come classi o sistemi. Classi con un livello elevato di responsabilità, non indicano una quantità operativa consistente, ma definiscono un elevato layer di coesione. Per cui l'assegnazione di responsabilità non va di pari passo rispetto all'operatività inclusa all'interno dell'elemento del dominio, anzi classi con basso livello di coesione illustrano situazioni sormontate dalla quantità di funzionalità da eseguire. I difetti relativi a quest'ultimo passaggio sono descritti come segue:
 \begin{itemize}[label={-}]
     \itemsep0em
     \item Difficile comprensione e manutenzione
-    \item La qualità \textit{reusability} non è conseguibile
-    \item Piuttosto sensibili a modifiche, piccole variazioni potrebbero provocare enormi cambiamenti, provocando \textit{design smells} come \textit{fragility} e \textit{rigidity}, tendenzialmente influenzati dal grado di correttezza nella gestione delle dipendenze
+    \item Il principio \textit{reusable} non è attuabile
+    \item Piuttosto sensibili a modifiche, piccole variazioni potrebbero provocare enormi cambiamenti
 \end{itemize}\vspace*{7pt}
 \textit{Soluzione}\\
 Equivalente a \textit{Low Coupling}, il pattern \textit{High Coesion} non può essere attuato senza considerare l'intero contesto delle responsabilità già adottate e dei principi di riferimento. Occorre quindi applicare una certa granularità all'interno del \textit{domain model}, stanziando classi che abbiano una coerenza a livello comportamentale, ossia siano riportati metodi appartenenti ad uno stesso insieme modellativo.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 Lo stesso caso di studio analizzato in \textit{Low Coupling} può essere inizializzato per \textit{High Coesion}. Come già illustrato, il fatto che la classe \textit{Register} sia responsabile della creazione delle due istanze rappresenta una scelta accettabile, all'interno del contesto. Tuttavia se si dovesse continuare a responsabilizzare la classe \textit{Register} per ogni futura operazione del sistema software, renderà l'elemento di difficile comprensione e di totale mancanza di coesione tra le funzionalità implementate. Per cui è necessario introdurre un'ulteriore effettività, sempre espressa mediante un \textit{interaction diagram}, la quale proponga un passaggio intermedio, il quale può essere propriamente considerato come definito dal pattern \textit{Indirection}.
 \begin{center}
-    \includegraphics[width=0.6\textwidth]{foto 4.png}
+    \includegraphics[width=0.6\textwidth]{foto 4.png}\vspace{7pt}
 \end{center}
 \textbf{Indirection}\vspace*{7pt}\\
 \textit{Problema}\\

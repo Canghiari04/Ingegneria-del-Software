@@ -94,17 +94,24 @@ Nonostante raffiguri un approccio accettabile per implementare un sistema softwa
 
 \subsection*{Decorator (Structural Pattern)}
 \large
-\textit{Decorator} tenta di rimediare alle mancanze precedenti, aggiungendo dinamicamente \textit{responsabilità} agli oggetti; inoltre, illustra un'alternativa molto più flessibile rispetto alla gerarchia composita di \textit{sottotipi}, la quale non si addice propriamente all'estensione di \textit{funzionalità}, e nemmeno alla creazione di nuovi metodi.\vspace*{7pt}\\
-Rispetto al nuovo termine introdotto, affinchè sia appreso appieno il meccanismo del pattern in questione, è bene considerare \textit{Decorator} come se fosse un \textit{contenitore}. Ai fini della descrizione attuata è proposta un'illustrazione grafica che possa chiarire quanto detto.
+\textit{Problema}\\
+Come potrebbero essere aggiunti comportamenti oppure stati ad istanze di classi software durante run-time?\vspace*{14pt}\\
+L'intento consiste nell'aggiunta di \textit{behavior} ad oggetti individuali durante l'esecuzione del processo esecutivo, in quanto \textit{ineheritance} risulta essere \textit{statica} ed attuata all'intera classe software di riferimento, per cui non è flessibile a variazioni ricorrenti.\vspace*{7pt}\\
+\textit{Decorator} tenta di rimediare alle mancanze precedenti, immettendo dinamicamente \textit{responsabilità} agli oggetti; inoltre, illustra un'alternativa molto più flessibile rispetto alla gerarchia composita di \textit{sottotipi}, la quale non si addice propriamente all'estensione di \textit{funzionalità}, e nemmeno alla creazione di nuovi metodi.\vspace*{7pt}\\
+Rispetto al nuovo termine introdotto, affinchè sia appreso appieno il meccanismo del pattern in questione, è bene considerare \textit{Decorator} come se fosse un \textit{contenitore}. La soluzione include l'\textit{incapsulazione} dell'oggetto originario all'interno dell'entità \textit{decoratrici}, poichè i termini contraddistinti espongono della stessa interfaccia affinchè possano modellare lo stesso \textit{dominio}. Ai fini della descrizione attuata è proposta un'illustrazione grafica che possa chiarire quanto detto.
 \begin{center}
     \includegraphics[width=0.4\textwidth]{foto 5.png}
 \end{center} 
 Si analizzano le componenti nella loro singolarità, in cui:
 \begin{itemize}[label={-}]
     \itemsep0em
-    \item \textit{ConcreteComponent}, implementa processi comportamentali 
-    \item \textit{Decorator}, contenitore 
-    \item \textit{Component}, interfaccia comune alle due entità precedenti
+    \item \textit{ConcreteComponent}, entità software pertinente all'istanza di oggetti che possano essere successivamente arricchiti  
+    \item \textit{Decorator}, classe decoratrice la quale rappresenta un certo comportamento o stato che possa essere aggiunto ad oggetti della classe concreta 
+    \item \textit{Component}, interfaccia da cui i due termini precedenti ereditano attributi e metodi affini all'implementazione attuata
 \end{itemize}
+L'approccio prevede che i \textit{clienti}, ossia \textit{high level classes}, stabiliscano se vogliano aumentare la caratterizzazione comportamentale di oggetti relativi alla classe concreta, mediante l'utilizzo di decoratori; meccanismo reso possibile  dall'interfaccia \textit{Component}, in grado di soddisfare il \textit{Dipendency Inversion Priciple}, ma soprattutto sviluppando i \textit{comportamenti} affinchè siano legati alla stessa realtà modellativa, dato che ereditano attributi e metodi inerenti a \textit{ConcreteComponent}.
+
+\subsection*{Adapter (Structural Pattern)}
+\large
 ...
 \end{document}
