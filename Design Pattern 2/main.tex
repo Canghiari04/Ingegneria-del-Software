@@ -26,7 +26,7 @@ Obiettivi:
 \begin{itemize}
     \renewcommand{\labelitemi}{-}
     \itemsep0em
-    \item Applicare propriamente i pattern del modello GoF 
+    \item Applicare propriamente i pattern del vocabolario GoF 
 \end{itemize}
 Questa sezione rappresenta il naturale conseguimento del documento \textit{Design Pattern 1}, in cui sono elencati ulteriori pattern \textit{comportamentali}, \textit{creazionali} e \textit{strutturali} del \textit{catologo GoF}.
 
@@ -59,7 +59,7 @@ Infine si considera la casistica in cui debbano essere introdotte nuove funziona
 \large
 Linguaggi legati al paradigma degli oggetti promuovono l'utilizzo di istanze di classi software, affinchè mediante funzionalità incapsulate al loro interno e una corretta manipolazione delle dipendenze, possano dare vita alla soluzione che soddisfi i requisiti funzionali degli utenti finali.\vspace*{14pt}\\
 Tuttavia nella stesura del codice spesso non si pone abbastanza importanza sulla creazione di oggetti, ottenuti tramite la semantica \textit{new (...)}, in cui modifiche all'interno del costruttore di classi concrete potrebbero provocare la rottura dell'operatività di \textit{low level classes}. Una prima soluzione potrebbe consistere nel porre il corretto livello di astrazione tra elementi del modello legati alla \textit{business logic} rispetto a classi adoperate da \textit{UI}.\vspace*{14pt}\\
-Nonostante la risoluzione, la quale potrebbe risultare conforme rispetto ai principi del modello \textit{SOLID}, è affetta da un'errata gestione delle dipendenze ed espone \textit{LLC} alla determinazione di classi concrete. Affinchè il tema trattato risulti comprensibile, si visualizza di seguito un caso di studio.\vspace*{14pt}\\
+Nonostante la risoluzione, la quale potrebbe risultare conforme rispetto ai principi del modello \textit{SOLID}, è affetta da un'errata gestione delle dipendenze ed espone \textit{HLC} alla determinazione di classi concrete. Affinchè il tema trattato risulti comprensibile, si visualizza di seguito un caso di studio.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 Si pensi alla creazione di un sistema software che debba gestire le singole operazioni di un servizio \textit{InBank}, in cui si vuole relegare una qualsiasi transazione di denaro ad una condizione di estrema persistenza. Per cui ponendo due attori \textit{A} e \textit{B}, i quali si scambiano una certa somma di denaro mediante un bonifico bancario, occorre un oggetto che gestisca la transazione di denaro e un'ulteriore istanza che provveda al controllo di persistenza. 
 \begin{itemize}[label={ }, leftmargin=1cm]
@@ -98,7 +98,7 @@ Nel contesto raffigurato è solamente il metodo \textit{FactoryMethod()} che si 
 
 \subsection*{Notification}
 \large
-Il problema relativo alla \textit{notification} può essere espresso come un'avversità pragmatica e contraria alla realizzazione della soluzione. Applicando una semplificazione, spesso questa problematica, piuttosto ricorrente, ritrae componenti soggette a notifiche qualora vari lo stato di elementi correlati. Tuttavia l'intento promuove l'uso di strumenti affinchè l'oggetto notificante non sia dipendente da terze parti. \textbf{Chiedere se ci sta mettere la foto oppure esempio da fare generale ...}\vspace*{14pt}\\
+Il problema relativo alla \textit{notification} può essere espresso come un'avversità pragmatica e contraria alla realizzazione della soluzione. Applicando una semplificazione, spesso questa problematica, piuttosto ricorrente, ritrae componenti soggette a notifiche qualora vari lo stato di elementi correlati. Tuttavia l'intento promuove l'uso di strumenti affinchè l'oggetto notificante non sia dipendente da terze parti.\vspace*{14pt}\\
 Riassumendo occorre realizzare una soluzione che mantenga in considerazione alcuni principi ritenuti fondamentali, come:
 \begin{itemize}[label={-}]
     \itemsep0em
@@ -106,13 +106,28 @@ Riassumendo occorre realizzare una soluzione che mantenga in considerazione alcu
     \item \textit{Interface Segregation}, definire un'interfaccia più ridotta possibile che possa contenere la dipendenza dell'oggetto notificante rispetto alla classe in ricezione
     \item \textit{Dipendency Inversion}, dipendere da astrazioni, ossia applicare \textit{abstract layer}, affinchè sia posta una schermatura tra \textit{low level classes} e \textit{high level classes}
 \end{itemize}
-L'insieme di queste tematiche è affrontato dal \textit{Observe pattern}, il quale ammette:\vspace*{7pt}\\
+L'insieme di queste tematiche da vita al pattern \textit{Observer}.
+
+\subsection*{Observer (Behavioral Pattern)}
+\large
 \textit{Soluzione}\\
-Tramite il \textit{pattern} avviene la costruzione di una classe astratta posta tra l'istanza notificante e l'oggetto in ascolto, affinchè tutte le dipendenze della prima citata possano essere automaticamente segnalate oppure aggiornate sul cambiamento di stato.\vspace*{14pt}\\
+Tramite il \textit{pattern} avviene la costruzione di un'interfaccia posta tra l'istanza notificante e l'oggetto in ascolto, affinchè tutte le dipendenze della prima citata possano essere automaticamente segnalate oppure aggiornate sul cambiamento di stato.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 \begin{center}
     \includegraphics[width=0.4\textwidth]{foto 3.png}
 \end{center}
 Come da raffigurazione, la classe \textit{Subject} rappresenta l'entità che deve comunicare alle proprie dipendenze il cambiamento del proprio stato, mentre \textit{ConcreteObserver} indica la classe concreta in ascolto o in ricezione di modifiche, ossia il vincolo comportamentale prima definito. Ribadito più volte in altri contesti simili, l'uso di un'interfaccia astratta permette di interrompere lo stretto collegamento tra le classi in questione, eliminando ogni stretta correlazione, rispettando soprattutto i tre principi prima elencati.\vspace*{7pt}\\
 Piccola nota è relativa ai metodi implementati da \textit{Subject}, in cui \textit{attach()} è implementato per aggiungere un osservatore, \textit{detach()} permette di eliminare una dipendenza dell'elenco di notifica infine \textit{notify()} garantisce l'aggiornamento a tutti gli osservatori. 
+
+\subsection*{Facade (Strucutral Pattern)}
+\large
+\textit{Problema}\\
+Come isolare high level classes dalla logica algoritmica?\vspace*{14pt}\\
+Spesso capita che sistemi software siano suddivisi in differenti sottosistemi, i quali a loro volta si contraddistinguono in un insieme di elementi adoperati pur di conseguire in funzionalità desiderate. In un contesto simile qualsiasi classe di alto livello dovrebbe mantenere un riferimento per ogni \textit{interfaccia} implementata nei differenti sottosistemi, in cui se non presente il livello di astrazione necessario, ciò potrebbe tradursi nella creazione di una dipendenza diretta con la \textit{business logic}, causando la violazione del \textit{Dipendency Inversion Principle}.\vspace*{14pt}\\
+\textit{Soluzione}\\
+Isolare la business logic da classi utilizzate da utenti finali mediante l'utilizzo di un'interfaccia di alto livello, anche se richieda \textit{pure fabrication}, permettendo un facile accesso alle funzionalità realmente attuabili dalle high level classes.\vspace*{14pt}\\
+Un'\textit{interfaccia di alto livello} rappresenta una \textit{empty class}, ossia un'entità che non sviluppa alcuna logica algoritmica, ma favorisce il concreto layer di astrazione affinchè sia posta la schermatura che isoli \textit{LLC} da \textit{HLC}, in maniera tale che modifiche ad una delle due non abbia alcuna ripercussione sulla corrisposta.\vspace*{7pt}\\
+Tuttavia, un pattern strutturale come \textit{Facade}, viola il \textit{Single Responsability Principle}, dato che mantiene al suo interno riferimenti a differenti metodi di molteplici sottosistemi, non adeguando un univoco \textit{asse comportamentale}; si ricordi che la volontà di un principio simile consiste nell'implementazione di metodiche di stessa natura all'interno di una classe software, in modo tale che possano modellare un unico comportamento.\vspace*{7pt}\\
+Nonostante si tratta di una violazione del principio \textit{SOLID}, può essere non considerata, grazie al fatto che l'interfaccia sia una \textit{empty class}, ossia non attua alcuna logica algoritmica, mantenendo solamente riferimenti alla differenti funzionalità concretamente attuabili.
+
 \end{document}
