@@ -53,8 +53,9 @@ Concludendo, il design pattern Null Object risulta funzionare nell'evitare probl
 \subsection*{Dipendency Injection (Modern Pattern)}
 \large
 \textit{Problema}\\
-Come creare un'istanza di un'entità software senza che sia specifica la classe?\vspace*{14pt}\\
-Il problema riportato è stato già affrontato all'interno di \textit{pattern creazionali}, ma la soluzione proposta raffigura un approccio totalmente differente, in grado di utilizzare al massimo delle proprie possibilità il \textit{meccanismo della composizione comportamentale}, capace di rompere concretamente le dipendenze causate dall'implementazione della sintassi \textit{new(...)} e dalla delega impartita mediante le \textit{factories}.\vspace*{14pt}\\
+Come creare un'istanza di un'entità software senza che sia specificata la classe?\vspace*{14pt}\\
+Tipicamente tale problematica avviene qualora classi di alto livello richiedano comportamenti sviluppati in classi di basso livello. Rispetto a capitoli precedenti, sono stati introdotti approcci capaci di rispondere attivamente alla domanda, come la \textit{sovvrapposizione} di layer \textit{astratti} tra le due entità, affinchè risultino totalmente isolate, oppure attraverso l'impiego di \textit{pattern creazionali}, come \textit{Factory Method}, in cui è delegata la responsabilità a termini software dediti solamente alla concretizzazione di istanze che saranno successivamente restituite al richiedente; tuttavia esiste un meccanismo migliorativo in grado di eliminare qualsiasi incertezza relativa ad errate gestioni di dipendenze, definita \textbf{Dipendency Injection}.\vspace*{14pt}\\
 \textit{Soluzione}\\
-Creare un grafo di dipendenze che adotti l'inversione di controllo per individuare gli oggetti associati, in maniera tale che le dipendenze siano immesse dal nucleo verso gli archi esterni.\vspace*{14pt}\\
+Dipendency Injection crea un grafo di dipendenze che adotti l'inversione di controllo per individuare gli oggetti associati, in maniera tale che le dipendenze siano immesse dal nucleo verso i nodi esterni.\vspace*{14pt}\\
+Il \textit{pattern} descritto è in grado di stabilire concretamente la rottura delle dipendenze tra \textit{LLC} e \textit{HLC}, contrariamente alle soluzioni precedenti, ossia mediante l'implementazione della sintassi \textit{new(...)} oppure tramite \textit{factories}, attuando la delega comportamentale.\vspace*{14pt}\\
 \end{document}
