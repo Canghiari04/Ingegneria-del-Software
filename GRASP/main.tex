@@ -43,9 +43,7 @@ UML definisce una \textbf{responsabilità} come un \textit{contratto oppure un o
 \end{itemize}
 Per cui in breve le due tipologie possono essere riassunte come segue; \textit{doing responsabilities} permettono la realizzazione di computazioni algoritmiche, mentre \textit{knowing responsabilities} prevedono di apprendere le informazioni interne ad ogni istanza di riferimento.\vspace*{14pt}\\
 Una responsabilità non può essere paragonata ad un metodo, ma un metodo implementa responsabilità. Quest'ultimo inciso indica una caratterizzazione sottile, la quale può essere considerata mediante un \textit{activities diagram}. Si prenda come esempio il diagramma posto all'interno del capitolo \textit{design goal}; l'attore pur di apprendere il totale della spesa effettuata, demanda la richiesta alla classe \textit{saleManager}, il quale a sua volta, pur di ottenere l'informazione, reclama il valore alla classe \textit{sale}, contenente l'insieme di attributi e funzioni in grado di rispondere alla domanda.\vspace*{14pt}\\
-Nonostante rappresenti una raffigurazione di estrema semplicità, si nota l'affermazione precedente, ossia i metodi implementano responsabilità, delegando \textit{vincoli comportamentali} ad un elenco di istanze, fino a quando non si riscontri l'oggetto capace di soddisfare la domanda.\vspace*{14pt}\\
-Un approccio dedicato all'assegnamento di responsabilità è denominato \textit{RDD}, ossia \textit{responsability driven design}. Quindi è un metodo per progettare sistemi software basato sulle responsabilità, in cui esse sono assegnate alle \textit{classi software} durante l'elaborazione.
-
+Nonostante rappresenti una raffigurazione di estrema semplicità, si nota l'affermazione precedente, ossia i metodi implementano responsabilità, delegando \textit{vincoli comportamentali} ad una sequenzialità di istanze, reperendo tutto il necessario.\vspace*{14pt}
 \subsection*{GRASP}
 \large
 \textit{GRASP} è l'acronimo di \textit{General Responsability Assignment Software Pattern}, ossia descrive i principi fondamentali della progettazione ad oggetti e permette l'assegnazione di responsabilità, detti \textit{patterns}. Spesso è utilizzato per implementare gli aspetti salienti di \textit{RDD} ma garantendo una solida costruzione sui principi cardine. In ingegneria del software il paradigma introdotto è considerato come l'artefice del conseguimento in sistemi software di spessore, poichè permette di analizzare e comprendere gli elementi essenziali nella progettazione ad oggetti, applicando un approccio metodico, razionale e improntato alla massima espressività.\vspace*{14pt}\\
@@ -62,7 +60,7 @@ Di seguito sono riportati i \textit{patterns} principali che contraddistinguono 
 \textbf{Information expert}\vspace*{7pt}\\
 \textit{Problema}\\
 Come assegnare propriamente responsabilità all'istanze delle classi software?\vspace*{7pt}\\
-Durante la fase di \textit{object design} potrebbero essere definite un numero sempre più elevato di responsabilità tra le classi, e lo stesso processo esecutivo potrebbe richiedere una quantità crescente di vincoli comportamentali. Buona pratica consiste nell'assegnare le \textit{responsabilities} tra \textit{software classes} durante la modellazione dell'interazioni tra oggetti; 
+Durante la fase di \textit{project design} potrebbero essere definite un numero sempre più elevato di responsabilità tra le classi, e lo stesso processo esecutivo potrebbe richiedere una quantità crescente di vincoli comportamentali. Buona pratica consiste nell'assegnare le \textit{responsabilities} tra \textit{software classes} durante la modellazione dell'interazioni tra oggetti; 
 ossia si allude alla progettazione di \textit{interaction diagram}, in cui risulta ben visibile quali siano gli obiettivi e come essi possano essere soddisfatti. Se viene garantita questa possibilità allora il sistema software è caratterizzato da elevata \textit{reusability}.\vspace*{14pt}\\ 
 \textit{Soluzione}\\
 La soluzione consiste nella sistematizzazione della classe software che acquisisca la responsabilità. L'espressione riportata indica che l'assegnamento di responsability dovrebbe accadere nei confronti di classi già esistenti, scegliendo tra quelle che comprendano il numero maggiore di risorse necessarie (\textit{si ricordi nuovamente il parallelismo con l'esempio della sezione design goal, in cui la responsabilità di rispondere alla richiesta del costo totale della spesa è delegata alla classe sale, poichè contiene al suo interno tutte le informazioni principali di riferimento}).\vspace*{14pt}\\
@@ -72,7 +70,7 @@ Si analizza la progettazione di una soluzione in grado di poter attribuire la sp
     \includegraphics*[width=0.9\textwidth]{foto 1.png}
 \end{center}\vspace*{7pt}
 Secondo il pattern presentato, occorre osservare la classe software che contenga il numero maggiore di informazioni congrue alla richiesta del \textit{totale spesa}, analizzando sia design model che domain model.\vspace*{7pt}\\
-Tuttavia assumendo della totale mancanza di \textit{charts modellativi}, l'unico diagramma in grado di illustrare ciò che sia necessario per implementare il vincolo comportamentale consiste in un \textit{class diagram}, come riportato nell'esempio. Per cui la \textit{responsabilità} sarà delegata alla classe software \textit{Sale}, poichè detiene il numero maggiore di risorse riconducibili alla realizzazione dell'obiettivo.\vspace*{7pt}\\
+Tuttavia assumendo della totale mancanza di \textit{interaction diagram}, l'unico diagramma in grado di illustrare ciò che sia necessario per implementare il vincolo comportamentale consiste in un \textit{class diagram}, come riportato nell'esempio. Per cui la \textit{responsabilità} sarà delegata alla classe software \textit{Sale}, poichè detiene il numero maggiore di risorse riconducibili alla realizzazione dell'obiettivo.\vspace*{7pt}\\
 Procedendo gradualmente, si verifica la necessità che la classe \textit{Sale} debba delegare comportamenti specifici affinchè possa apprendere la \textit{lista dei prodotti acquistati} e i \textit{subtotals} di riferimento. Proprio per questa ragione, oltre al \textit{class diagram}, è riportata la raffigurazione di un \textit{sequence diagram}. La ragione principale è dovuta alla chiara visualizzazione dell'obiettivo del \textit{pattern Information Expert}, dove la classe \textit{Sale} rappresenta l'\textit{esperto} in grado di assimilare tutte le informazioni del contesto, divenendo l'elemento del modello con il numero maggiore di informazioni necessarie.\vspace*{14pt}\\
 \textbf{Creator}\vspace*{7pt}\\
 \textit{Problema}\\
@@ -109,7 +107,7 @@ Come già accennato dall'introduzione del problema, porre responsabilità relati
 \textbf{Low Coupling}\vspace*{7pt}\\
 \textit{Problema}\\
 Come stabilire dinamiche che scoraggino \textit{elevata dipendenza} e \textit{impatto modellativo}, affinchè si possa massimizzare il \textit{riutilizzo}?\vspace*{7pt}\\
-\textbf{Coupling} è una misura di come un elemento sia fortemente connesso o meno rispetto a possibili corrisposti. Per elemento si intende un insieme di caratterizzazioni, come classi, sistemi oppure sottosistemi. Per cui un elemento con un \textit{low coupling}, ossia un basso layer di accoppiamento, non è dipendente da un numero crescente di entità, mentre in maniera opposta un elemento è detto \textit{strong coupling} qualora sia artefice di \textit{contesti dipendenti}. Si nota nuovamente la centralità delle \textit{dipendenze} e delle problematiche derivanti da esse, totalmente contrarie rispetto all'obiettivo del pattern illustrato, tra cui:
+\textbf{Coupling} è una misura di quanto un elemento sia fortemente connesso o meno rispetto a possibili corrisposti. Per elemento si intende un insieme di caratterizzazioni, come classi, sistemi oppure sottosistemi. Per cui un elemento con un \textit{low coupling}, ossia un basso layer di accoppiamento, non è dipendente da un numero crescente di entità, mentre in maniera opposta un elemento è detto \textit{strong coupling} qualora sia artefice di \textit{contesti dipendenti}. Si nota nuovamente la centralità delle \textit{dipendenze} e delle problematiche derivanti da esse, totalmente contrarie rispetto all'obiettivo del pattern illustrato, tra cui:
 \begin{itemize}[label={-}]
     \itemsep0em
     \item Cambiamenti suscitano modifiche locali delle classi, situazione contraria rispetto all'\textit{OOP}, ossia \textit{Open Closed Principle}
@@ -117,7 +115,7 @@ Come stabilire dinamiche che scoraggino \textit{elevata dipendenza} e \textit{im
     \item Maggiore complessità relativa al \textit{riutilizzo} dato che l'implementazione delle classi ha portato ad un numero elevato di dipendenze, producendo un effetto a cascata
 \end{itemize}\vspace*{7pt}
 \textit{Soluzione}\\
-In pratica, il \textit{livello di accoppiamento} non può essere considerato come un'entità a sè stante da ulteriori principi, tra cui \textit{Information Expert} oppure \textit{High Coesion}. Spesso le soluzioni che adeguano \textit{Low Coupling} sono attuate durante l'implementazione del sistema software.\vspace*{14pt}\\
+Assegnare responsabilità affinchè sia mantenuto basso livello di accoppiamento.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 L'obiettivo consiste nella creazione di un'istanza della classe \textit{Payment} affinchè sia usufruibile dalla classe \textit{Sale}.\vspace*{7pt}
 \begin{center}
@@ -135,7 +133,7 @@ Il problema potrebbe essere riassunto semplicemente in come mantenere una comple
     \item Piuttosto sensibili a modifiche, piccole variazioni potrebbero provocare enormi cambiamenti
 \end{itemize}\vspace*{7pt}
 \textit{Soluzione}\\
-Equivalente a \textit{Low Coupling}, il pattern \textit{High Coesion} non può essere attuato senza considerare l'intero contesto delle responsabilità già adottate e dei principi di riferimento. Occorre quindi applicare una certa granularità all'interno del \textit{domain model}, stanziando classi che abbiano una coerenza a livello comportamentale, ossia siano riportati metodi appartenenti ad uno stesso insieme modellativo.\vspace*{14pt}\\
+Attribuire responsabilità affinchè sia mantenuta elevata coesione.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 Lo stesso caso di studio analizzato in \textit{Low Coupling} può essere inizializzato per \textit{High Coesion}. Come già illustrato, il fatto che la classe \textit{Register} sia responsabile della creazione delle due istanze rappresenta una scelta accettabile, all'interno del contesto. Tuttavia se si dovesse continuare a responsabilizzare la classe \textit{Register} per ogni futura operazione del sistema software, renderà l'elemento di difficile comprensione e di totale mancanza di coesione tra le funzionalità implementate. Per cui è necessario introdurre un'ulteriore effettività, sempre espressa mediante un \textit{interaction diagram}, la quale proponga un passaggio intermedio, il quale può essere propriamente considerato come definito dal pattern \textit{Indirection}.
 \begin{center}

@@ -26,7 +26,7 @@ Obiettivi:
 \begin{itemize}
     \renewcommand{\labelitemi}{-}
     \itemsep0em
-    \item Applicare propriamente i pattern del modello GoF 
+    \item Applicare propriamente i pattern del catalogo GoF 
 \end{itemize}
 Questa sezione rappresenta il naturale conseguimento del documento \textit{Design Pattern 2}, in cui sono elencati ulteriori pattern \textit{comportamentali}, \textit{creazionali} e \textit{strutturali} del \textit{catologo GoF}.
 
@@ -34,7 +34,7 @@ Questa sezione rappresenta il naturale conseguimento del documento \textit{Desig
 \large 
 \textit{Problema}\\
 Come garantire che sia creata una sola istanza di una classe e fare in modo che sia condivisibile dagli elementi del modello?\vspace*{14pt}\\
-\textit{Singleton} è un pattern creazionale adoperato per istanziare oggetti in maniera tale che siano rispettati i principi di qualità del software, cercando di manipolare al meglio le dipendenze tra le classi. La volontà di implementare un meccanismo simile, avviene qualora differenti elementi del dominio eseguano lo stesso processo esecutivo, da cui saranno restituiti certi \textit{behaviors} oppure dati in \textit{output}.\vspace*{14pt}\\
+\textit{Singleton} è un pattern creazionale adoperato per istanziare oggetti in maniera tale che siano rispettati i principi di qualità del software, cercando di manipolare al meglio le dipendenze tra le classi. La volontà di implementare un meccanismo simile, avviene qualora differenti elementi del modello eseguano lo stesso processo esecutivo, da cui saranno restituiti certi \textit{behaviors} oppure dati in \textit{output}.\vspace*{14pt}\\
 Per cui l'intento promuove la creazione di una singola istanza della classe software analizzata, affinchè essa possa essere condivisa tra le entità del sistema elaborato. Tendenzialmente è dichiarata come una variabile \textit{privata}, in quanto lo stesso \textit{costruttore} è \textit{protetto} oppure \textit{privato}, a cui si associa una funzione \textit{pubblica} che incapsula al suo interno l'intero codice di inizializzazione e provvede all'accesso all'instanza in questione.\vspace*{14pt}\\
 \textit{Soluzione}\\
 Creare una \textit{singola} istanza della classe software analizzata e provvedere ad un \textit{unico punto di accesso}.\vspace*{14pt}\\
@@ -107,7 +107,7 @@ Si analizzano le componenti nella loro singolarità, in cui:
     \itemsep0em
     \item \textit{ConcreteComponent}, entità software pertinente all'istanza di oggetti che possano essere successivamente arricchiti  
     \item \textit{Decorator}, classe decoratrice la quale rappresenta un certo comportamento o stato che possa essere aggiunto ad oggetti della classe concreta 
-    \item \textit{Component}, interfaccia da cui i due termini precedenti ereditano attributi e metodi affini all'implementazione attuata
+    \item \textit{Component}, interfaccia da cui i due termini precedenti estendono funzionalità affini all'implementazione attuata
 \end{itemize}
 L'approccio prevede che i \textit{clienti}, ossia \textit{high level classes}, stabiliscano se vogliano aumentare la caratterizzazione comportamentale di oggetti relativi alla classe concreta, mediante l'utilizzo di decoratori; meccanismo reso possibile  dall'interfaccia \textit{Component}, in grado di soddisfare il \textit{Dipendency Inversion Priciple}, ma soprattutto sviluppando i \textit{comportamenti} affinchè siano legati alla stessa realtà modellativa, dato che ereditano attributi e metodi inerenti a \textit{ConcreteComponent}.
 
@@ -115,7 +115,7 @@ L'approccio prevede che i \textit{clienti}, ossia \textit{high level classes}, s
 \large
 \textit{Problema}\\
 Come usufruire dei metodi di una classe nonostante non siano conformi all'aspettative del Client?\vspace*{14pt}\\
-L'intento è quello di convertire l'interfaccia di una classe in maniera tale che sia conforme rispetto alla richieste avanzate dal \textit{Client}; per cui si tenta di racchiudere funzionalità di un'entità software esistente all'interno di un \textit{layer astratto}, tipicamente una \textit{interface}. A livello comportamentale è molto simile a pattern illustrati in sezioni precedenti, come \textit{Proxy} e \textit{Facade}, in cui l'obiettivo sommatoriamente consiste nella contrapposizione di classi software tra \textit{high level classes} e \textit{low level classes}, affinchè operino come se fossero dei mediatori di \textit{richieste} e \textit{risposte}.\vspace*{7pt}\\
+L'intento è quello di convertire l'interfaccia di una classe in maniera tale che sia conforme rispetto alla richieste avanzate dal \textit{Client}; per cui si tenta di racchiudere funzionalità di un'entità software esistente all'interno di un \textit{layer astratto}, tipicamente una \textit{interface}. A livello comportamentale è molto simile a pattern illustrati in sezioni precedenti, come \textit{Facade}, in cui l'obiettivo sommatoriamente consiste nella contrapposizione di classi software tra \textit{high level classes} e \textit{low level classes}, affinchè operino come se fossero dei mediatori di \textit{richieste} e \textit{risposte}.\vspace*{7pt}\\
 Per cui \textit{adapter} rappresenta un \textit{contenitore} che dispone funzionalità, metodi oppure attributi in modo affine alle richieste di classi \textit{cliente}.\vspace*{14pt}\\
 \textit{Caso di studio}\\
 \begin{center}
@@ -123,7 +123,7 @@ Per cui \textit{adapter} rappresenta un \textit{contenitore} che dispone funzion
 \end{center}
 Come da raffigurazione, la classe \textit{Adapter} è sovrapposta tra l'interfaccia \textit{ClientNeededInterface}, richiamata dall'utente finale, e \textit{LegacyService}, la quale sviluppa logica algoritmica. 
 Al suo interno l'adattatore contiene un'istanza di \textit{LegacyService}, affinchè possa reindirizzare le funzionalità richieste, sia comportamentali che strutturali, all'interfaccia \textit{ClientNeededInterface}, rispettando in questo modo anche il principio \textit{dipendency inversion}.\vspace*{7pt}\\
-Concludendo, in questo contesto il pattern realizza un'entità software con un background logico, per cui non è possibile implementare un termine di \textit{facciata}, che provveda solamente ad estrapolare i dati necessari, per cui occorre concretamente sviluppare una nuova realtà che possa contenere metodi e attributi richiesti da \textit{low level classes}.
+Concludendo, in questo contesto il pattern realizza un'entità software con un background logico, per cui non è possibile implementare un termine di \textit{facciata}, che provveda solamente ad estrapolare i dati necessari, per cui occorre concretamente sviluppare una nuova realtà che possa contenere metodi e attributi richiesti da \textit{high level classes}.
 
 \subsection*{Bridge (Structural Pattern)}
 \large
@@ -141,7 +141,7 @@ In relazione allo schema riportato si adotta una descrizione per ogni singolo el
     \itemsep0em
     \item \textit{Client}, high level class, entità legata al dominio
     \item \textit{Abstraction}, definisce la gerarchia di astrazione modellata all'interno del sistema software, affinchè siano conseguiti i principi del modello \textit{SOLID}
-    \item \textit{Implementor}, interfaccia da cui dipendono gli \textit{adattatori} comportamentali sottostanti, si ricalca l'obiettivo del pattern \textit{Adapter}
+    \item \textit{Implementor}, classe padre da cui dipendono gli \textit{adattatori} comportamentali sottostanti, si ricalca l'obiettivo del pattern \textit{Adapter}
 \end{itemize}
 Mediante una composizione architetturale simile è possibile isolare le due sfere, costituendo un \textit{bridge} posto tra i due livelli di astrazione, che comportano la suddivisione tra la logica algoritmica ed entità di dominio. Si evince anche l'importanza degli \textit{adattatori}, in cui rispetto al livello generale, permettono di racchiudere al loro interno le funzionalità richieste dal \textit{Client}.\vspace*{7pt}\\
 Riassumendo, se nella sezione precedente si tentava di adeguare \textit{low level classes} al modello comportamentale oppure strutturale delle \textit{high level classes}, in questo contesto si attua il meccanismo opposto, ossia \textit{elementi del dominio} sono modificati in modo tale che siano conformi alle pretese della \textit{logica algoritmica}.

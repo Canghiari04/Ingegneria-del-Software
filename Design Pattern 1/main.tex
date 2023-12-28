@@ -39,9 +39,9 @@ Spesso i \textit{pattern} sono raggruppati in strutture coese, ossia accomunate 
 Stabilita un'introduzione al contesto cardine della sezione, si approccia nel dettaglio ciò che contraddistingue maggiormente l'insieme dei pattern del \textit{catalogo GoF}. I pattern caratterizzati si suddividono in tre macro areee, poste come segue:
 \begin{itemize}[label={-}]
     \itemsep0em
-    \item \textit{Creational}, ...
-    \item \textit{Structural}, ... 
-    \item \textit{Behavioral}, ... 
+    \item \textit{Creational}
+    \item \textit{Structural} 
+    \item \textit{Behavioral} 
 \end{itemize} 
 Tuttavia, prima di illustrare nel dettaglio tutti i pattern di riferimento alle classificazioni precedenti, occorre descrivere una tematica su cui fonda la propria logica il meccanismo \textit{GoF}.\vspace*{14pt}\\
 Analizzando nuovamente linguaggi legati al paradigma degli oggetti, per adeguare la soluzione software ad un'elevata \textit{reusability} occorre ottimizzare l'utilizzo di caratteristiche particolari, quali \textit{ereditarietà} e \textit{poliformismo}. Per cui l'obiettivo di un qualsiasi team di sviluppo, consiste nella possibilità di riutilizzare porzioni di codice già attutate per risolvere problemi passati. Ciò è possibile tramite il corretto uso di meccanismi legati alle caratteristiche del linguaggio di programmazione adottato, ma non rappresenta l'unica soluzione.\vspace*{14pt}\\
@@ -56,7 +56,7 @@ Nonostante possa apparire una soluzione valida, viola il principio di \textit{Li
 \begin{center}
     \includegraphics*[width=0.5\textwidth]{foto 2.png}
 \end{center}
-Un meccanismo simile risulta essere solido fino a quando non sia proposta un'ulteriore funzionalità da sviluppare. Infatti, qualora all'interno della superclasse sia posto un ulteriore metodo che dovrà essere ereditato dalle sottoclassi, quale \textit{notifyDriver()}, dimostrandosi totalmente differente per ogni elemento del modello, qualsiasi livello di astrazione non sarebbe sufficiente per poter rispettare i principi legati al modello GRASP, diminuendo la qualità del codice.
+Un meccanismo simile risulta essere solido fino a quando non sia proposta un'ulteriore funzionalità da sviluppare. Infatti, qualora all'interno della superclasse sia posto un ulteriore metodo che dovrà essere ereditato dalle sottoclassi, quale \textit{notifyDriver()}, dimostrandosi totalmente differente per ogni elemento del modello, qualsiasi livello di astrazione non sarebbe sufficiente per poter rispettare i principi legati al modello SOLID, diminuendo la qualità del codice.
 \begin{center}
     \includegraphics*[width=0.5\textwidth]{foto 3.png}
 \end{center}\vspace*{7pt}
